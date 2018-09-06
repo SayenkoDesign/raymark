@@ -1,4 +1,4 @@
-WordPress - Web publishing software - changed for testing
+WordPress - Web publishing software
 
 Copyright 2011-2018 by the contributors
 
