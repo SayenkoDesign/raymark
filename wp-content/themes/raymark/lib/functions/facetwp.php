@@ -33,10 +33,12 @@ function my_facetwp_pager_html( $output, $params ) {
     if ( 1 < $total_pages ) {
  
         if ( 1 < $page ) {
-            $output .= '<li><a class="facetwp-page" data-page="' . ( $page - 1 ) . '">&laquo; Previous Page</a></li>';
+            $output .= sprintf( '<li><a class="facetwp-page" data-page="%s"><span>%s</span><span class="screen-reader-text">&laquo; %s</span></a></li>',
+                                ( $page - 1 ), get_svg( 'arrow-left' ), __( 'Previous Page' ) );
         }
         else {
-             $output .= '<li><span>&laquo; Previous Page</span></li>';
+             $output .= sprintf( '<li class="disable"><span>%s</span><span class="screen-reader-text">&laquo; %s</span></li>',
+             get_svg( 'arrow-left' ), __( 'Previous Page' ) );
         }
         
         if ( 3 < $page ) {
@@ -45,7 +47,7 @@ function my_facetwp_pager_html( $output, $params ) {
         }
         for ( $i = 2; $i > 0; $i-- ) {
             if ( 0 < ( $page - $i ) ) {
-                $output .= '<li><a class="facetwp-page" data-page="' . ($page - $i) . '">' . ($page - $i) . '</a></li>';
+                $output .= '<li class="number"><a class="facetwp-page" data-page="' . ($page - $i) . '">' . ($page - $i) . '</a></li>';
             }
         }
  
@@ -54,19 +56,21 @@ function my_facetwp_pager_html( $output, $params ) {
  
         for ( $i = 1; $i <= 2; $i++ ) {
             if ( $total_pages >= ( $page + $i ) ) {
-                $output .= '<li><a class="facetwp-page" data-page="' . ($page + $i) . '">' . ($page + $i) . '</a></li>';
+                $output .= '<li class="number"><a class="facetwp-page" data-page="' . ($page + $i) . '">' . ($page + $i) . '</a></li>';
             }
         }
         if ( $total_pages > ( $page + 2 ) ) {
             $output .= ' <span class="dots">…</span> ';
-            $output .= '<li><a class="facetwp-page last-page" data-page="' . $total_pages . '">' . $total_pages . '</a></li>';
+            $output .= '<li class="number"><a class="facetwp-page last-page" data-page="' . $total_pages . '">' . $total_pages . '</a></li>';
         }
         
         if ( $page < $total_pages ) {
-            $output .= '<li><a class="facetwp-page" data-page="' . ( $page + 1 ) . '">Next Page &raquo;</a></li>';
+            $output .= sprintf( '<li><a class="facetwp-page" data-page="%s"><span>%s</span><span class="screen-reader-text">%s &raquo;</span></a></li>',
+            ( $page + 1 ), get_svg( 'arrow-right' ), __( 'Next Page' ) );
         }
         else {
-             $output .= '<li><span>Next Page &raquo;</span></li>';
+             $output .= sprintf( '<li class="disable"><span>%s</span><span class="screen-reader-text">%s &raquo;</span></li>', 
+             get_svg( 'arrow-right' ), __( 'Next Page' ) );
         }
     }
  

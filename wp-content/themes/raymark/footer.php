@@ -12,80 +12,56 @@
 
 </div><!-- #content -->
 
-<div id="footer" class="footer-widgets"></div>
+<?php
+   _s_get_template_part( 'template-parts/global', 'cta' );
+?>
 
 <footer class="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
 
     <div class="wrap">
     
-        <?php
-        if( ! is_user_logged_in() || WP_DEBUG ) {
-           get_template_part( 'template-parts/section', 'footer-cta' ); 
-        }
-        ?>
         
-        <div class="footer-bottom">
-    
-            <div class="footer-widgets">
-                
-                <div class="row align-top align-center align-middle large-unstack">
-                
-                    <div class="column column-block large-4 large-order-2">
-                    <?php
-                    /*  $site_url = home_url();
-                        $logo = sprintf('<img src="%sfooter-logo.png" class="" />', trailingslashit( THEME_IMG ) );                    
-                        printf('<aside class="widget widget_media_image text-center"><a href="%s" title="%s">%s</a></aside>',
-                                $site_url, get_bloginfo( 'name' ), $logo );
-                    */
-                    ?>
-                    </div>
-                    
-                    <div class="column column-block large-4 large-order-1">
-                    <?php
-                    
-                    if( is_active_sidebar( 'footer-1') ){
-                        dynamic_sidebar( 'footer-1' );
-                    }
-                    ?>
-                    </div>
-                    
-                    <div class="column column-block large-4 large-order-3">
-                    <?php
-                    if( is_active_sidebar( 'footer-2') ){
-                        dynamic_sidebar( 'footer-2' );
-                    }
-                    ?>
-                    </div>
-                
-                </div>
+        
+        <?php
+        
+        function footer_copyright() {
             
-            </div>
-            
-            <div class="footer-copyright">
-            
-              <hr />
-                    
-              <div class="column row">                      
-                <?php
-
-                
-                $copyright = sprintf( '<span>&copy; %s Honoring Choice Pacific Northwest.</span><span>Privacy Statement 
-    The name Honoring Choices Pacific Northwest is used under license from Twin Cities Medical Society Foundation. All rights reserved.</span>', 
+            $copyright = sprintf( '<p>&copy; %s Raymark Plubming & Sewer.</p>', 
                                       date( 'Y' ) );
                                       
-                $designer  = sprintf( '<span><a href="%1$s" target="_blank">Seattle Web Design</a> by <a href="%1$s" target="_blank">Sayenko Design</a></span>', 
-                                       'http://www.sayenkodesign.com' );
-                                    
-                printf( '<div class="copyright"><p>%s%s</p></div>', $copyright, $designer );
-                                            
+            $designer  = sprintf( '<p>All rights reserved. <a href="%1$s" target="_blank">Seattle Web Design</a> by <a href="%1$s" target="_blank">Sayenko design</a></p>', 'https://www.sayenkodesign.com/' );
+                                                        
+            printf( '<div class="column row footer-copyright">%s%s</div>', $copyright, $designer );
+        }
+        
+        ?>
+            
+        <div class="footer-widgets">
+            
+            <div class="row align-top align-center medium-unstack">
+                    
+                <?php
+                $sidebars = [ 
+                              'footer-1',
+                              'footer-2',
+                              'footer-3' ];
+                foreach( $sidebars as $sidebar ) {
+                    if( is_active_sidebar( $sidebar ) ){
+                        printf( '<div class="%s column column-block ">', '' );
+                        dynamic_sidebar( $sidebar );
+                        echo '</div>';
+                    }
+                }
                 ?>
+                                                    
             </div>
-    
-                
-             </div>
-         
-         </div>
-     
+        
+        </div>   
+            
+        <?php
+        footer_copyright();
+        ?>
+                          
      </div>
  
  </footer><!-- #colophon -->

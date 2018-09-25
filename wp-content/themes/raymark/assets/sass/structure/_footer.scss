@@ -6,43 +6,16 @@
 .site-footer {
     position: relative;
     
-    background-image: url(assets/images/footer/background.jpg);
     background-size: cover;
     background-position: center;
     
     position: relative;
     
-    &:before {
-        content: '';
-        height: 100px;
-        width: 100%;
-        display: block;
-        background: rgb(255,255,255);
-        background: -moz-linear-gradient(180deg, rgba(255,255,255,1) 52%, rgba(255,255,255,0) 100%);
-        background: -webkit-linear-gradient(180deg, rgba(255,255,255,1) 52%, rgba(255,255,255,0) 100%);
-        background: -webkit-gradient(linear, 100% 0, 0 0, color-stop(0.52, rgba(255,255,255,1)), to(rgba(255,255,255,0)));
-        background: -o-linear-gradient(180deg, rgba(255,255,255,1) 52%, rgba(255,255,255,0) 100%);
-        background: linear-gradient(180deg, rgba(255,255,255,1) 52%, rgba(255,255,255,0) 100%);
-        
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    
     .wrap {
         position: relative;
         z-index: 2;   
     }
-    
-    hr {
-        border-bottom: 1px dashed #5a5b5d;
-        max-width: $global_width - (map-get($grid-column-gutter, small));
-        margin: 20px auto 10px;
-        
-        @include breakpoint(large) {
-            max-width: $global_width - (map-get($grid-column-gutter, large));
-        }
-    }
+
 }
 
 .section-footer-cta {

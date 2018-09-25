@@ -2,16 +2,11 @@
 
 .blog {
     
-    .section-hero {
-        &:after {
-            display: block!important;   
-        }
-        
+    .page-title {
+        color: $blue;
         text-align: center;
-        
-        .wrap {
-            background-color: $blue;   
-        }
+        padding: rem-calc(25 0);   
+        margin: 0;
     }
     
     @include breakpoint(large) {
@@ -45,12 +40,17 @@
 .blog {
  
     .post-hero {
+        display: block;
         background: $gray;
         background-size: cover;
         background-position: center bottom;
         background-repeat: no-repeat;
         position: relative;        
-        padding-top: 99%;        
+        padding-top: 99%;  
+        
+        &:hover {
+            opacity: .8;   
+        }
      }
      
     @include breakpoint(large) {
@@ -80,7 +80,7 @@
         .posted-on {
             color: #4A4A4A;
             display: block;
-            font-family: $cubano;
+            font-family: $open-sans;
             font-size: 15px;
             letter-spacing: 0.5px;
             line-height: 25px;
@@ -95,23 +95,21 @@
                 color: $blue;
                 
                 &:hover {
-                    color: $navy;   
+                    color: $yellow;   
                 }
             }
         }
         
         .more {
             color: $blue;
-            font-weight: 300;
-            text-transform: lowercase; 
-            letter-spacing: rem-calc(1);
-            font-size: rem-calc(20);
-            line-height: rem-calc(21); 
+            font-family: $cubano;
+            font-size: rem-calc(18);
+            line-height: rem-calc(20); 
             padding-bottom: 5px;
-            border-bottom: 3px solid $blue; 
+            border-bottom: 3px solid $yellow; 
             
             &:hover {
-                color: $navy;   
+                color: $yellow;   
             }
             
         }
@@ -121,9 +119,10 @@
 
 .blog .facetwp-filters {
     
-    background-color: #fff;
+    background-color: $sky-blue;
+    border-radius: 8px;
     box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
-    margin: 50px 0 $global-margin;
+    margin: 0 0 $global-margin;
     padding: $global-margin $global-margin 0;
     text-align: center;
         
@@ -132,7 +131,7 @@
         display: block;
         margin-bottom: 0!important; 
          
-        padding: $global-padding ($global-padding/2);
+        padding: rem-calc($global-padding);
         
         @include breakpoint(large) {
             display: inline-block;
@@ -141,12 +140,13 @@
     }
     
     span {
-        color: $gray;
-        @extend h3;   
+        color: $white;
+        font-size: rem-calc(17);  
+        font-family: $cubano;
+        line-height: rem-calc(30);
         margin: 0 5px 0 0;
         line-height: rem-calc(40);
         position: relative;
-        top: 4px;
         text-align: right;
         min-width: inherit;
     }
@@ -166,14 +166,16 @@
         background-image: url("data:image/svg+xml;utf8,<svg width='16' height='9' viewBox='0 0 16 9' xmlns='http://www.w3.org/2000/svg'><title>Fill 4</title><path d='M.758.75C.588.91.5 1.13.5 1.343c0 .212.09.433.258.594l6.617 6.316c.17.16.392.246.624.246.23 0 .453-.085.622-.246l6.617-6.316c.347-.33.347-.858 0-1.19-.348-.33-.9-.33-1.247 0L8 6.47 2.004.75C1.658.427 1.097.427.758.75z' fill='#969696' fill-rule='evenodd'/></svg>");
         background-position: 96% 50%;
         background-repeat: no-repeat;
-        padding: 8px 30px;	
+        padding: rem-calc(8px 30px);	
         font-size: rem-calc(16);
-        border: 2px solid #969696;
-        height: 40px;        
+        border: 1px solid #979797;
+        height: rem-calc(36px);        
     }
     
     button {
-        padding: 8px 30px;   
+        padding: 8px 30px;
+        background: transparent;
+        border: 4px solid #fff;   
     }
 }
 
@@ -240,25 +242,83 @@
                 &:last-child {
                     float: right;   
                 }
+                
+                &.number {
+                    padding: rem-calc(5);
+                    line-height: rem-calc( 65/2 );
+                    
+                    @include breakpoint(large) {
+                        line-height: rem-calc( 65 ); 
+                    }
+                }
+                
+                &.active a {
+                    color: $blue;
+                }
+                
+                &:not(.active) a:hover {
+                    color: $sky-blue;
+                }
+                
+                &.disable span {
+                    border-color: $gray;
+                    svg path {
+                        &.line {
+                            stroke: $gray;
+                        }
+                        &.arrow {
+                            fill: $gray;   
+                        }
+                    }
+                }
             }
         }
         
         a {
             padding: 4px;   
+            font-family: $cubano;
+            font-size: rem-calc(18);
+            color: $gray;
+        }
+        
+        span {
+            display: block;
+            position: relative;
+            width: rem-calc( 65/2 );
+            height: rem-calc( 65/2 ); 
+            border: 3px solid $blue;
+            border-radius: 100%;
+            curser: pointer;
             
+            @include breakpoint(large) {
+                width: rem-calc( 65 );
+                height: rem-calc( 65 );  
+            }
+            
+            &:hover {
+                border-color: $sky-blue;
+                svg path {
+                    &.line {
+                        stroke: $sky-blue;
+                    }
+                    &.arrow {
+                        fill: $sky-blue;   
+                    }
+                }
+            }            
         }
         
         svg {
-            width: 15.5px;
-            height: 11px;   
+            width: rem-calc(31/2);
+            height: rem-calc(22/2);  
             position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
             
             @include breakpoint(large) {
-                width: 31px;
-                height: 22px;   
+                width: rem-calc(31);
+                height: rem-calc(22);   
             }
         }
         

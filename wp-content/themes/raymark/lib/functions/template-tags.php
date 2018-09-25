@@ -6,7 +6,7 @@ function _s_get_page_id_from_template_name( $template_name ) {
 
 	if ( ! file_exists( $located ) ) {
 		/* translators: %s template */
-		doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', '_s' ), '<code>' . $located . '</code>' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', '_s' ), '<code>' . $located . '</code>' ), '1.0' );
 		return;
 	}
     
@@ -54,7 +54,7 @@ function _s_get_template( $template_name, $args = array(), $template_path = '', 
 
 	if ( ! file_exists( $located ) ) {
 		/* translators: %s template */
-		doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', '_s' ), '<code>' . $located . '</code>' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', '_s' ), '<code>' . $located . '</code>' ), '1.0' );
 		return;
 	}
 
@@ -90,7 +90,7 @@ function _s_get_template( $template_name, $args = array(), $template_path = '', 
  * @param array       $data optional array of vars to inject into the template part
  * @param boolean     $return Whether to return or output the template
  */
-function _s_get_template_part( $slug, $name = null, $data = array(), $return = false ) {
+/*function _s_get_template_part( $slug, $name = null, $data = array(), $return = false ) {
     
     do_action( "get_template_part_{$slug}", $slug, $name );
      
@@ -99,6 +99,11 @@ function _s_get_template_part( $slug, $name = null, $data = array(), $return = f
 		$templates[] = "{$slug}-{$name}.php";
 
 	$templates[] = "{$slug}.php";
+    
+    if( ! locate_template( $templates ) ) {
+        _doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', '_s' ), '<code>' . join( ', ', $templates ) . '</code>' ), '1.0' );
+        return;
+    }
     
     if( is_array( $data ) ) {
         extract( $data );
@@ -116,6 +121,35 @@ function _s_get_template_part( $slug, $name = null, $data = array(), $return = f
     }
         
     include( locate_template( $templates ) );
+    
+}
+*/
+
+function _s_get_template_part( $template_path, $template_name, $data = array(), $return = false ) {
+        
+    $template_name = "{$template_name}.php";
+    
+    $template = _s_locate_template( $template_name, $template_path );
+    
+    if( ! $template )
+        return;
+            
+    if( is_array( $data ) ) {
+        extract( $data );
+    }
+    
+    // Return instead of echo
+    if( $return ) {
+        
+        ob_start();
+        include( $template );
+        $content = ob_get_contents();
+        ob_end_clean();
+        
+        return $content;
+    }
+        
+    include( $template );
     
 }
 
@@ -150,13 +184,22 @@ function _s_locate_template( $template_name, $template_path = '', $default_path 
 
 	// Get default template/.
 	if ( ! $template ) {
-		doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', '_s' ), '<code>' . $template . '</code>' ), '1.0' );
+		_doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', '_s' ), '<code>' . $template_name . '</code>' ), '1.0' );
         return;
 	}
 
 	// Return what we found.
 	return apply_filters( '_s_locate_template', $template, $template_name, $template_path );
 }
+
+
+if ( ! function_exists( '_s_get_posted_on' ) ) :
+
+    function _s_posted_on( $format = '' ) {
+        echo   _s_get_posted_on( $format ); 
+    }
+
+endif;
 
 
 /**
@@ -171,14 +214,13 @@ if ( ! function_exists( '_s_get_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function _s_get_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+function _s_get_posted_on( $format = '' ) {
+	
+    $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
+		esc_html( get_the_date( $format ) )
 	);
 
 	$posted_on = sprintf(

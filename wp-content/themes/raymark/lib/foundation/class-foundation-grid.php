@@ -88,9 +88,9 @@ class Foundation_Grid extends Foundation {
                 $title_before = '';
             }
             
-            $description = isset(  $row['grid_description'] ) ? sprintf( '<%1$s>%2$s</%1$s>', $description_tag, $row['grid_description'] ): '';
+            $description = empty(  $row['grid_description'] ) ? false : sprintf( '<%1$s>%2$s</%1$s>', $description_tag, $row['grid_description'] );
             
-            $button      = isset(  $row['grid_button'] ) ? $row['grid_button']: '';
+            $link = empty(  $row['grid_link'] ) ? false : $row['grid_link'];
             
             $anchor_open = '<div class="panel">';
             $anchor_close = '</div>';
@@ -101,7 +101,7 @@ class Foundation_Grid extends Foundation {
                       
                     if ( $button['link'] == 'Page' ) {
                         if ( ! empty( $button['page'] ) ) {
-                            $url = $page;
+                            $url = $button['page'];
                         }
                     } 
                     else if( $button['link'] == 'Absolute URL' ) {

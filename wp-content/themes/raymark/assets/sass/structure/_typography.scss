@@ -62,55 +62,95 @@ h6 {
     margin-bottom: 10px;
 }
 
-// entry content
-
- .entry-content {
- 
-	a {
-		color: $anchor-color;
-		text-decoration: none;
-		//text-decoration: underline;
-			
-		&:hover {
-			color: $anchor-color-hover;
-			text-decoration: none;
-		}
-	}
+p, li {
+    line-height: $paragraph-line-height;
     
-	
-	p, li {
-		line-height: $paragraph-line-height;
-		
-	}
-	
-	p, ul {
-		margin-bottom: $paragraph-margin-bottom;	
-	}
-    
-    p:last-child {
-        //margin-bottom: 0;   
-    }
-	
-	ul, ol {
-        @include list-reset;
-        
-    }
-
-	ul:not([class]),
-	ol:not([class]) {
- 		margin: 0 0 30px;
- 		
-	}
-    
-    ol:not([class]) {
-        list-style: decimal;
-    }
- 	
 }
 
-.page .entry-content {
+p, ul {
+    margin-bottom: $paragraph-margin-bottom;	
+}
+
+p:last-child {
+    margin-bottom: 0;   
+}
+
+ul:not([class]),
+ol:not([class]) {
+    margin: rem-calc(0 0 30 18);
+    
+}
+
+ol:not([class]) {
+    list-style: decimal;
+}
+
+
+@mixin heading-lines( $border-color ) {
+    display: inline-block;
+    position: relative;
+    
+    &::before,
+    &::after {
+        content: '';
+        width: 56px;
+        height: 3px;
+        background-color: $border-color;
+        position: absolute;
+        top: 50%;
+        margin-top: -5px;
+           
+    }
+    
+    &::before {
+        left: -56px;
+    }
+    
+    &::after {
+        right: -56px;
+    }
+    
+    span {
+        
+        padding: rem-calc(0 10);
+        
+        &:before,
+        &:after {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background-color: $border-color;
+            position: absolute;
+            top: 50%;
+            margin-top: 2px;
+        }
+        
+        &::before {
+            left: -40px;
+        }
+        
+        &::after {
+            right: -40px;
+        }   
+    }
+}
+
+.page-builder section {
+    
+    h2 {
+        margin-bottom: 24px;   
+    }
+    
+    .element-photo {
+     
+        img {
+            box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1); 
+        }
+        
+    }
     
     ul:not([class]) {
+        
         list-style-type: none;
             
         li {
@@ -149,47 +189,4 @@ h6 {
             
         }   
     }
-}
-
-.page-builder {
- 
-    h2 {
-        margin-bottom: 24px;   
-    }
-    
-    .element-photo {
-     
-        img {
-            box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1); 
-        }
-        
-    }
-    
-}
-
-table.table { 
-    width: auto;
-    border-collapse: collapse;
-    margin-bottom: $paragraph-margin-bottom;	
- }
-
-.table th, .table td { 
-  text-align: left; 
-  padding: 0 3rem 1rem 0;
-}
-
-
-
-@media screen and (max-width: 639px) {
-  tr { 
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0.5em 0;
-    border: 1px solid rgba(3,3,3,0.2);
-  }
-  td, th {
-    flex: 1 1 150px;
-    border: 0.5px solid rgba(3,3,3,0.2);
-  }
 }

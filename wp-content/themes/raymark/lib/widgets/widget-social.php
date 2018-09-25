@@ -42,7 +42,7 @@ class BE_Social_Widget extends WP_Widget {
 		$this->socials = apply_filters( 'be_social_widget_order', array(
 			'facebook'    => 'Facebook',
 			'twitter'     => 'Twitter',
-            'vimeo'       => 'Vimeo',
+            'youtube'       => 'Youtube',
 		) );
 		
 		// widget basics

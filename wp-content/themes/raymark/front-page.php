@@ -5,17 +5,16 @@
  * @param array $classes
  * @return array
  */
-function kr_body_class( $classes ) {
-  unset( $classes[array_search('page-template-default', $classes )] );
-  // $classes[] = 'page-builder';
-  return $classes;
-}
-add_filter( 'body_class', 'kr_body_class', 99 );
+
+add_filter( 'body_class', function( $classes ) {
+    unset( $classes[array_search('page-template-default', $classes )] );
+    return $classes;
+}, 99 );
 
 get_header(); ?>
 
 <?php
-get_template_part( 'template-parts/hero', 'home' );
+_s_get_template_part( 'template-parts/home', 'hero-video' );
 ?>
 
 <div id="primary" class="content-area">
@@ -23,27 +22,17 @@ get_template_part( 'template-parts/hero', 'home' );
 	<main id="main" class="site-main" role="main">
      
 	<?php
-        
- 	 _s_get_template_part( 'template-parts/section', 'home-help' );
      
-     _s_get_template_part( 'template-parts/section', 'home-news' );
+     _s_get_template_part( 'template-parts/home', 'reviews' );
      
-     _s_get_template_part( 'template-parts/section', 'home-join' );
+     _s_get_template_part( 'template-parts/home', 'services' );
      
-     _s_get_template_part( 'template-parts/section', 'testimonials' );
+     _s_get_template_part( 'template-parts/home', 'about' );
      
+     _s_get_template_part( 'template-parts/home', 'discount' );
      
-     while ( have_posts() ) :
+     //_s_get_template_part( 'template-parts/home', 'areas-contact' );
 
-        the_post();
-                
-        echo '<div class="entry-content">';
-        
-        the_content();
-        
-        echo '</div>';
-            
-    endwhile;
    	?>
         
 	</main>

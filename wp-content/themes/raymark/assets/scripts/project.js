@@ -6984,42 +6984,60 @@ return Outlayer;
         var $win = $(window), 
             $self = $(this),
             isShow = false,
-            delta = 300, // distance from top where its active
+            delta = 400, // distance from top where its active
             lastScrollTop = 0;
-    
-        $win.on('scroll', function () {
-          
-          // don't show below sticky menu
-          if( $('.facetwp-template').hasClass('is-paging') ) {
-              return;
-          }
-          
-          var scrollTop = $win.scrollTop();
-          var offset = scrollTop - lastScrollTop;
-          lastScrollTop = scrollTop;
-          
-          console.log(scrollTop);
-          
-          // Have they scrolled past delta?
-          if(scrollTop > delta) {
-              $self.addClass('fixed');
-              
-              if (offset < 0 ) {
-                if (!isShow ) {
-                  $self.addClass('fixed-show');
-                  isShow = true;
-                }
-              } else if (offset > 0 || offset < lastScrollTop ) {
-                if (isShow) {
-                  $self.removeClass('fixed fixed-show');
-                  isShow = false;
-                }
-              }
-          }
-          else {
-              $self.removeClass('fixed fixed-show');
-          }
+            
+        var scrollHeight = $(document).height();
 
+        $win.on("scroll", function() {
+            var scrollPosition = $(window).height() + $(window).scrollTop();
+            var scrollBottom = ( (scrollHeight - scrollPosition) / scrollHeight ) * 100;
+            var scrollTop = $win.scrollTop();
+            var offset = scrollTop - lastScrollTop;
+            lastScrollTop = scrollTop;
+            
+            /*
+            console.log( 'ScrollTop: ' + scrollTop );
+            
+            console.log( 'ScrollHeight: ' + scrollHeight );
+            
+            console.log( 'ScrollPosition: ' + scrollPosition );
+            
+            console.log( 'scrollBottom:' + scrollBottom );
+            */
+            
+            if( scrollHeight < (delta * 2) ) {
+                return;
+            }
+            
+            if ( scrollTop > delta && scrollBottom > 0 ) {
+                
+                $self.addClass('fixed');
+                
+                if (offset < 0 ) {
+                    if (!isShow ) {
+                      $self.addClass('fixed-show');
+                      isShow = true;
+                    }
+                } else if (offset > 0 || offset <= lastScrollTop ) {
+                    if (isShow) {
+                      $self.removeClass('fixed fixed-show');
+                      isShow = false;
+                    }
+                }
+                else {
+                    $self.removeClass('fixed fixed-show');
+                    isShow = false;
+                }
+                
+            }
+            else {
+                
+                $self.removeClass('fixed fixed-show'); 
+                isShow = false; 
+                 
+            }
+            
         });
     });
     
@@ -7050,6 +7068,42 @@ return Outlayer;
     });
     
    
+   $(document).on('click', '.play-video', playVideo);
+    
+    function playVideo() {
+                
+        var $this = $(this);
+        
+        var url = $this.data('src');
+                
+        var $modal = $('#' + $this.data('open'));
+        
+        /*
+        $.ajax(url)
+          .done(function(resp){
+            $modal.find('.flex-video').html(resp).foundation('open');
+        });
+        */
+        
+        var $iframe = $('<iframe>', {
+            src: url,
+            id:  'video',
+            frameborder: 0,
+            scrolling: 'no'
+            });
+        
+        $iframe.appendTo('.video-placeholder', $modal );        
+        
+        
+        
+    }
+    
+    // Make sure videos don't play in background
+    $(document).on(
+      'closed.zf.reveal', '#modal-video', function () {
+        $(this).find('.video-placeholder').html('');
+      }
+    );
     
 }(document, window, jQuery));
 

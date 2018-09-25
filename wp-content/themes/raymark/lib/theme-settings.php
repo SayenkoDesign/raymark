@@ -24,3 +24,6 @@ add_action( 'wp_enqueue_scripts', '_s_enqueue_stylesheet', 15 );
 
 add_image_size( 'hero', 1600, 999 );
 add_image_size( 'team-thumbnail', 290, 260 );
+add_image_size( 'icon-small', 100, 999 );
+add_image_size( 'icon-medium', 160, 999 );
+add_image_size( 'icon-large', 200, 999 );

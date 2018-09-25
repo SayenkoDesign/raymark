@@ -44,10 +44,10 @@ if( ! class_exists( 'Post_Footer' ) ) {
             
             $navigation = _s_get_the_post_navigation( array( 'prev_text' => $previous, 'next_text' => $next ) );
             
-            $share = sprintf( '<h4><span>%s</span></h4>%s', __( 'Share This', '_s' ), _s_get_addtoany_share_icons() );
+            $share = sprintf( '<h3><span>%s</span></h3>%s', __( 'Share This', '_s' ), _s_get_addtoany_share_icons() );
             
-            return sprintf( '<div class="row align-middle"><div class="column text-center">%s%s</div></div>', 
-                            $navigation, $share );
+            return sprintf( '<div class="row align-center"><div class="large-9 column text-center">%s%s</div></div>', 
+                            $share, $navigation  );
                             
         }
     }

@@ -35,7 +35,8 @@ if ( ! function_exists( '_s_setup' ) ) :
 		
     	define( 'GOOGLE_API_KEY', '' );	
 
-
+        define( 'BUSINESS_PHONE', '(206) 440-9077' );	
+        
 		/**
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -66,8 +67,7 @@ if ( ! function_exists( '_s_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary Menu', '_s' ),
-            'footer' => esc_html__( 'Footer Menu', '_s' )
+			'primary' => esc_html__( 'Primary Menu', '_s' )
 		) );
 
 		/**
@@ -102,7 +102,7 @@ add_action( 'after_setup_theme', '_s_setup' );
  * @global int $content_width
  */
 function _s_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 1200 );
+	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 1264 );
 }
 add_action( 'after_setup_theme', '_s_content_width', 0 );
 
@@ -118,6 +118,7 @@ function _s_widgets_init() {
         'header'            => esc_html__( 'Header', '_s' ),
  		'footer-1'          => esc_html__( 'Footer 1', '_s' ),
         'footer-2'          => esc_html__( 'Footer 2', '_s' ),
+        'footer-3'          => esc_html__( 'Footer 3', '_s' ),
 	);  
 
 	// Loop through each sidebar and register.

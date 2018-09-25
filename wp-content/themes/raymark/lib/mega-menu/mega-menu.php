@@ -111,7 +111,7 @@ final class Mega_Menu_Walker_Edits {
 			
             $walker = 'MegaMenu_Walker_Nav_Menu';
             if ( ! class_exists( $walker ) ) {
-                error_log( dirname( __FILE__ ) . '/includes/megamenu-walker-nav-menu.php' );
+                // error_log( dirname( __FILE__ ) . '/includes/megamenu-walker-nav-menu.php' );
                 require_once dirname( __FILE__ ) . '/includes/megamenu-walker-nav-menu.php';
             }
             

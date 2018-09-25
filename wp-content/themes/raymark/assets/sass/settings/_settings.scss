@@ -10,15 +10,19 @@
 //   5. Off Canvas Menu
 
 
+@import '../../../node_modules/foundation-sites/scss/util/util';
+
 // 1. Global
 // ---------
 
 $global-font-size: 100%;
-$global-width: 1264px;
+$global-width: rem-calc(1264);
 $global-lineheight: 1.5;
 
 $black: #000;
 $white: #ffffff;
+
+$green: #AAC687;
 
 $blue: #007ABE;
 $sky-blue: #22A1E7;
@@ -32,7 +36,7 @@ $dark-gray: #252B33;
 $cubano: 'cubanoregular', sans-serif;
 $open-sans: 'Open Sans', sans-serif; 
 
-$transition: ease all 0.3s;
+$transition: none;
 
 $body-background: #FFF;
 $body-font-color: #4A4A4A;

@@ -1,5 +1,13 @@
 <?php
 
+// Remove tags
+
+// Remove tags support from posts
+function _s_unregister_post_tags() {
+    unregister_taxonomy_for_object_type('post_tag', 'post');
+}
+add_action('init', '_s_unregister_post_tags');
+
 
 function _s_get_the_post_navigation( $args = array() ) {
     $args = wp_parse_args( $args, array(
@@ -37,9 +45,12 @@ function _s_get_the_post_navigation( $args = array() ) {
     return $navigation;
 }
 
-
+// If usisng Facet Search, remove category template and change url's  to use blog page
 add_filter( 'term_link', function ( $termlink, $term, $taxonomy )
 {
+    if( ! function_exists( 'FWP' )  )
+        return $termlink;
+    
     // Check if we have the correct term and taxonomy, if not, bail early
     if (   $taxonomy != 'category' )
         return $termlink;

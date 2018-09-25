@@ -43,9 +43,7 @@
 	include_once( 'functions/social.php' );
 
 	include_once( 'functions/menus.php' );
-    
-    include_once( 'functions/store-locator.php' );
-    
+        
     include_once( 'functions/blog.php' );
     
     include_once( 'functions/facetwp.php' );
@@ -56,7 +54,7 @@
 
     include_once( 'functions/addtoany.php' );
     
-    include_once( 'functions/locations.php' );
+    include_once( 'functions/videos.php' );
     
 /****************************************
 	include_onces (Foundation)

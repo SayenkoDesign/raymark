@@ -30,17 +30,7 @@ if( ! class_exists( 'Hero_Post' ) ) {
                      $this->get_name() . '-hero'
                 ]
             );
-        }
-        
-        
-        // Add content
-        public function render() {
-                                
-            $heading        = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
-            $heading        = _s_format_string( $heading, 'h1' );
             
-            $post_date = _s_get_posted_on();
-                        
             // Use hero_background from category
             $category_hero = get_field( 'category_hero' );
                         
@@ -63,13 +53,23 @@ if( ! class_exists( 'Hero_Post' ) ) {
                     $this->add_render_attribute( 'wrap', 'style', sprintf( 'background-position: %s %s;', 
                                                                               $background_position_x, $background_position_y ) );
     
-                    $this->add_render_attribute( 'wrap', 'class', 'background-overlay' ); 
+                    // $this->add_render_attribute( 'wrap', 'class', 'background-overlay' ); 
                 }
                 
                 
                                                                           
             }  
+        }
+        
+        
+        // Add content
+        public function render() {
+                                
+            $heading        = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
+            $heading        = _s_format_string( $heading, 'h1' );
             
+            $post_date = _s_get_posted_on( 'M d,Y' );
+                                    
             $post_author = _s_get_post_author();
             
             if( ! empty( $post_author ) ) {

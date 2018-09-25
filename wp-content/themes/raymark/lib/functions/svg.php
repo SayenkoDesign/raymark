@@ -4,12 +4,7 @@ function get_svg( $type = '' ) {
 	
 	$svgs = array(  
     
-        'wave-top' => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1442 56">
-          <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" transform="translate(125.000000, -78.000000) translate(596.000000, 106.500000) scale(-1, 1) translate(-596.000000, -106.500000) translate(-125.000000, 78.000000)">
-            <path fill="#EFF3F1" d="M414 13c349 30 691 26 1028-13v28H3C108 3 245-2 414 13z"/>
-            <path fill="#3287C4" d="M0 2c84 20 392 23 924 11 145-4 317 2 518 16v27H0V2z"/>
-          </g>
-        </svg>',
+        'wave-top' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1398.971 29.125"><path fill="#ECECEC" d="M411.091 9.229C707.978 20.058 1050.869 16.981 1439.764 0v28.258L0 19.931C9.944 3.163 146.974-.404 411.091 9.229z"/><path fill="#007ABE" d="M0 0c125.56 19.6 432.184 23.992 919.871 13.18 143.18-3.174 316.604 1.199 520.271 13.119v2.76H0V0z"/></svg>',
         
         'wave-bottom' => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1440 27">
           <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" transform="translate(0.000000, -474.000000) translate(808.000000, 491.000000) rotate(-180.000000) translate(-808.000000, -491.000000) translate(-43.000000, 474.000000)">
@@ -17,35 +12,12 @@ function get_svg( $type = '' ) {
             <path fill="#3287C4" d="M225 9c449 25 389 11 920 0 144-4 317 1 519 13v12H225C-75 0-75-8 225 9z"/>
           </g>
         </svg>',
-    
-            'curve-top' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 49">
-          <path fill="#eff3f1" fill-rule="evenodd" d="M1440 25V0c-355 29-595 44-720 44S355 29 0 0v49h1440z" transform=""/>
-        </svg>',
-        
-        'curve-bottom' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 49">
-          <path fill="#eff3f1" fill-rule="evenodd" d="M1440 25v24c-353-22-593-33-720-33S353 27 0 49V0h1440z" transform=""/>
-        </svg><strong></strong>',
-                           		
-        'menu-icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="38" height="34" class="menu-icon" viewBox="0 0 38 34"><g fill="none" fill-rule="evenodd" stroke="#454C54" stroke-width="3" stroke-linecap="square"><path d="M2 22h34M2 12h34M2 32h27M2 2h27"/></g><span class="screen-reader-text">menu icon</span></svg>',
-   
-        
-        'arrow-left' => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 31 22">
-  <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" transform="translate(-231.000000, -1931.000000) translate(245.500000, 1941.000000) rotate(-180.000000) translate(-245.500000, -1941.000000) translate(211.000000, 1908.000000) translate(20.000000, 21.000000)">
-    <path class="arrow" fill="#d8d6d7" d="M16 22a1 1 0 0 0 2 0l11-10a1 1 0 0 0 0-2L18 0h-2v2l10 9-10 9v2z"/>
-    <path class="line" stroke="#d8d6d7" stroke-linecap="square" stroke-width="3" d="M26 11H0"/>
-  </g>
-</svg>',
+                           		        
+        'arrow-left' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 22"><g fill="none" fill-rule="evenodd"><path class="arrow" 
+        fill="#007ABE" d="M13 0a1 1 0 0 0-2 0L0 10a1 1 0 0 0 0 2l11 10h2v-2L3 11l10-9V0z"/><path class="line" stroke="#007ABE" stroke-linecap="square" stroke-width="3" d="M3 11h26"/></g></svg>',
 
-        'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 31 22">
-  <defs>
-    <polygon id="a" points="0 0 0 65 65 65 65 0 0 0"/>
-  </defs>
-  <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" transform="translate(-376.000000, -1239.000000) translate(358.000000, 1218.000000)">
-    <g/>
-    <path class="arrow" fill="#d8d6d7" d="M36 43a1 1 0 0 0 2 0l11-10a1 1 0 0 0 0-2L38 21h-2v2l10 9-10 9v2z"/>
-    <path class="line" stroke="#d8d6d7" stroke-linecap="square" stroke-width="3" d="M46 32H20"/>
-  </g>
-</svg>',
+        'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 22"><g fill="none" fill-rule="evenodd"><path class="arrow" 
+        fill="#007ABE" d="M18 22a1 1 0 0 0 2 0l11-10a1 1 0 0 0 0-2L20 0h-2v2l10 9-10 9v2z"/><path class="line" stroke="#007ABE" stroke-linecap="square" stroke-width="3" d="M28 11H2"/></g></svg>',
    
 
     'chevron' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 43">
@@ -58,41 +30,8 @@ function get_svg( $type = '' ) {
           </g>
         </svg>',
         
-        'play' => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 49 49">
-          <defs>
-            <circle id="b" cx="18.5" cy="18.5" r="18.5"/>
-            <filter id="a" width="145.9%" height="145.9%" x="-23%" y="-23%">
-              <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-              <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-              <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
-              <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-              <feColorMatrix in="shadowBlurOuter1" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
-            </filter>
-          </defs>
-          <g fill="none" fill-rule="evenodd" transform="translate(6 6)">
-            <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-            <use fill="#3287c4" fill-rule="evenodd" stroke="#fff" stroke-width="2" xlink:href="#b"/>
-            <path fill="#fff" d="M28 19l-15 7V11z"/>
-          </g>
-        </svg>',
+        'video-play' => '<svg width="61" height="61" xmlns="http://www.w3.org/2000/svg"><g transform="translate(3 3)" fill="none" fill-rule="evenodd"><circle stroke="#FFF" stroke-width="5" fill="#007ABE" cx="27.5" cy="27.5" r="27.5"/><path fill="#FFF" d="M41.95 27.966L19.575 39.153V16.78z"/></g></svg>',
         
-        'play-hover' => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 49 49">
-  <defs>
-    <circle id="b" cx="18.5" cy="18.5" r="18.5"/>
-    <filter id="a" width="145.9%" height="145.9%" x="-23%" y="-23%">
-      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
-      <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
-      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2.5"/>
-      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
-      <feColorMatrix in="shadowBlurOuter1" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
-    </filter>
-  </defs>
-  <g fill="none" fill-rule="evenodd" transform="translate(6 6)">
-    <use fill="#000" filter="url(#a)" xlink:href="#b"/>
-    <use fill="#aac687" fill-rule="evenodd" stroke="#fff" stroke-width="2" xlink:href="#b"/>
-    <path fill="#fff" d="M28 19l-15 7V11z"/>
-  </g>
-</svg>',
                 
         // social icons https://codepen.io/ruandre/pen/howFi
 	
@@ -120,21 +59,4 @@ function get_svg( $type = '' ) {
 		return $svgs[$type];	
 	}
 	
-}
-
-
-add_shortcode( 'bmp_svg', '_s_get_svg' );
-
-function _s_get_svg( $atts = array() ) {
-    $atts = shortcode_atts( array(
-		'type' => '',
-	), $atts, 'svg' );
-    
-    if( !isset( $atts['type'] ) ) {
-        return;   
-    }
-    
-    $svg = get_svg( $atts['type'] );
-    
-    return $svg;
 }

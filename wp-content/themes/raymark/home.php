@@ -48,6 +48,21 @@ wp_reset_postdata();
     <div id="primary" class="content-area">
     
         <main id="main" class="site-main" role="main">
+        
+            <header>
+                <?php
+                if( is_category() ) {
+                    $page_title = single_cat_title( '', false );
+                }
+                else {
+                    $page_title = get_the_title( get_option( 'page_for_posts' ) );
+                }
+                
+                printf( '<h1 class="page-title">%s</h1>', $page_title );
+                ?>
+                
+            </header>
+            
             <?php 
             if( function_exists( 'facetwp_display' ) ) {
                 
@@ -83,7 +98,7 @@ wp_reset_postdata();
                     
                     printf( '<div class="column column-block %s">', $columns );
                     
-                    _s_get_template_part( 'template-parts/content', 'post-column', 
+                    _s_get_template_part( 'template-parts', 'content-post-column', 
                                           array( 'post_count' => $post_count, 'full_width' => $full_width ) );
                     
                     echo '</div>';

@@ -84,15 +84,16 @@
 
 
 .button {
-    @include button;    
+    @include button;   
+    box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12); 
         
     &.blue {
         @include button-background( $blue, $navy );
         @include button-color();
         @include button-padding();
-        border-radius: 51px;
-    	box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+        border-radius: 23px;
     }
+    
     
 }
 

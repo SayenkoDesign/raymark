@@ -11,6 +11,7 @@ include_once( 'includes/base/element-base.php' );
 include_once( 'includes/elements/section.php' );
 include_once( 'includes/elements/row.php' );
 include_once( 'includes/elements/column.php' );
+include_once( 'includes/elements/markup.php' );
 include_once( 'includes/elements/header.php' );
 include_once( 'includes/elements/editor.php' );
 include_once( 'includes/elements/photo.php' );

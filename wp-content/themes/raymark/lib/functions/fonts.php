@@ -5,7 +5,6 @@ function _s_load_google_fonts() {
 
 	// change array as needed
 	$font_families = array(
-            'Lato',
 			'Open+Sans'
 		);
 
