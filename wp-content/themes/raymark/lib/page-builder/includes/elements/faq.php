@@ -36,21 +36,15 @@ class Element_Faq extends Element_Base {
                                 
 		$fields = $this->get_fields();
                                                                 
-        if ( ! isset( $fields['faq'] ) || empty( $fields['faq'] ) ) {
+        if ( empty( $fields ) ) {
             return;
         }
         
-        $field = $this->get_fields( 'faq' );
-                
-        $heading = isset( $field['heading'] ) ? _s_format_string( $field['heading'], 'h2' ) : '';
-        $faq     = $field['faq'];
+        $rows = $this->get_fields( 'faq' );
         
-        if( empty( $faq ) ) {
+        if( empty( $rows ) ) {
             return false;
         }
-        
-        $rows = get_field( 'faq', $faq->ID );
-        
         
         $fa = new Foundation_Accordion;
                 
@@ -62,7 +56,7 @@ class Element_Faq extends Element_Base {
         
         $this->add_render_attribute( 'wrapper', 'class', 'element-faq' );
                                         
-        return sprintf( '<div %s>%s%s</div>', $this->get_render_attribute_string( 'wrapper' ), $heading, $accordion );
+        return sprintf( '<div %s>%s</div>', $this->get_render_attribute_string( 'wrapper' ), $accordion );
 	}
     
     public function __construct( array $data = [], array $args = null ) {

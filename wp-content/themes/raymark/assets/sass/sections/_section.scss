@@ -4,9 +4,7 @@ section {
     
     background-size: cover;
     background-repeat: no-repeat;
-    
-    margin-top: 45px;
-    
+        
     &.background-dark {
         background: $light-gray; 
         padding: 45px 0;
@@ -29,4 +27,8 @@ section {
         margin-bottom: 30px;    
     }
     
+}
+
+.site-main section .wrap {
+    padding-top: rem-calc(45);
 }

@@ -6,6 +6,10 @@
         padding-bottom: 0;    
     }
     
+    .section-hero {
+        text-align: center;   
+    }
+    
     .site-main {
         
         section:nth-child(even) {
@@ -24,12 +28,14 @@
                 }
                 
                 .column:first-child {
-                    padding-left: rem-calc(map-get($grid-column-gutter, large)*1.5);  
+                    padding-right: rem-calc(map-get($grid-column-gutter, large)*1.5);  
                 }
                 
                 .column:last-child {
-                    padding-right: rem-calc(map-get($grid-column-gutter, large)*1.5);  
+                    padding-left: rem-calc(map-get($grid-column-gutter, large)*1.5);  
                 }
+                
+                
             }  
         }
         
@@ -46,12 +52,14 @@
                 }
                 
                 .column:first-child {
-                    padding-right: rem-calc(map-get($grid-column-gutter, large)*1.5);  
+                    padding-left: rem-calc(map-get($grid-column-gutter, large)*1.5);  
                 }
                 
                 .column:last-child {
-                    padding-left: rem-calc(map-get($grid-column-gutter, large)*1.5);  
+                    padding-right: rem-calc(map-get($grid-column-gutter, large)*1.5);  
                 }
+                
+                
             }   
         }
     }

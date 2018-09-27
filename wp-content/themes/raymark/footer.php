@@ -13,11 +13,13 @@
 </div><!-- #content -->
 
 <?php
-   _s_get_template_part( 'template-parts/global', 'cta' );
+   _s_get_template_part( 'template-parts/global', 'footer-cta' );
 ?>
 
 <footer class="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
-
+    <?php
+    printf( '<div class="wave-footer show-for-large">%s</div>', get_svg( 'wave-footer-bottom' ) );
+    ?>
     <div class="wrap">
     
         

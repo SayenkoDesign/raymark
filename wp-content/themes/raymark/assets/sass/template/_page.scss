@@ -60,7 +60,25 @@ button:focus {
     max-width: 100%;
     overflow: hidden;
     height: 0;
-    padding-top: 1.875%;
+    padding-top: 2.704577%;
+
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0; 
+        z-index: 1;   
+    }   
+}
+
+.wave-footer {
+    position: relative;
+    top: -1px;
+    line-height: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    height: 0;
+    padding-top: 2.704577%;
 
     svg {
         position: absolute;
@@ -83,11 +101,10 @@ button:focus {
 }
 
 
-.logo-mark {
-    width: 116px; 
-    height: 116px;  
-    background-color: #fff;
+.page .section-hero h1 {
+    text-align: center;   
 }
+
 
 .icon {
     border-radius: 50%;

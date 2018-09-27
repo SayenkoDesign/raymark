@@ -20,7 +20,7 @@ add_filter( 'body_class', 'kr_body_class', 99 );
 get_header(); ?>
 
 <?php
-    get_template_part( 'template-parts/hero' );
+    _s_get_template_part( 'template-parts/global', 'hero' );
 ?>
 
 <div id="primary" class="content-area">
@@ -28,7 +28,25 @@ get_header(); ?>
 	<main id="main" class="site-main" role="main">
          
 	<?php
- 	get_template_part( 'template-parts/page-builder' );
+    while ( have_posts() ) :
+
+        the_post();
+
+        if ( have_rows('sections') ) {
+		
+			while ( have_rows('sections') ) { 
+			
+				the_row();
+                
+                // Use custom template part function so we can pass data
+                _s_get_template_part( 'template-parts/page-builder', sprintf( 'section-%s', get_row_layout() ), ['data' => [] ] );
+  					
+			} // endwhile have_rows('sections')
+			
+ 		
+		} // endif have_rows('sections')
+
+        endwhile; 	
 	?>
     
 	</main>

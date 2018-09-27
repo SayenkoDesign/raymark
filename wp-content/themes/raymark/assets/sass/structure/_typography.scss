@@ -33,6 +33,20 @@ h4,
 h5,
 h6 {
 	font-family: $header-font-family;	
+    
+    span[style*="underline"] {
+        font-size: rem-calc(21);   
+        line-height: 1.19;
+        padding-bottom: rem-calc(1px);
+        margin-right: rem-calc(3);
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: $yellow;
+        text-decoration: none!important;
+        position: relative;
+        top: -4px;
+        display: inline-block;
+    }
 }
 
 
@@ -77,7 +91,7 @@ p:last-child {
 
 ul:not([class]),
 ol:not([class]) {
-    margin: rem-calc(0 0 30 18);
+    margin: rem-calc(0 0 $global-margin 18);
     
 }
 
@@ -86,7 +100,7 @@ ol:not([class]) {
 }
 
 
-@mixin heading-lines( $border-color ) {
+@mixin heading-lines( $border-color:$yellow ) {
     display: inline-block;
     position: relative;
     
@@ -98,7 +112,7 @@ ol:not([class]) {
         background-color: $border-color;
         position: absolute;
         top: 50%;
-        margin-top: -5px;
+        margin-top: -6px;
            
     }
     
@@ -122,11 +136,49 @@ ol:not([class]) {
             background-color: $border-color;
             position: absolute;
             top: 50%;
-            margin-top: 2px;
+            margin-top: 4px;
         }
         
         &::before {
             left: -40px;
+        }
+        
+        &::after {
+            right: -40px;
+        }   
+    }
+}
+
+@mixin right-heading-lines( $border-color:$yellow ) {
+    display: inline-block;
+    position: relative;
+    
+    &::after {
+        content: '';
+        width: 56px;
+        height: 3px;
+        background-color: $border-color;
+        position: absolute;
+        top: 50%;
+        margin-top: -6px;
+           
+    }
+    
+    &::after {
+        right: -56px;
+    }
+    
+    span {
+        padding: rem-calc(0 10 0 0);
+        
+        &:after {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background-color: $border-color;
+            position: absolute;
+            top: 50%;
+            margin-top: 4px;
         }
         
         &::after {
@@ -151,7 +203,8 @@ ol:not([class]) {
     
     ul:not([class]) {
         
-        list-style-type: none;
+        @include list-reset;
+        margin-bottom: rem-calc($global-margin);
             
         li {
             position: relative;

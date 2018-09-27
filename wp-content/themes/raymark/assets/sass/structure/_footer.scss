@@ -5,6 +5,7 @@
 
 .site-footer {
     position: relative;
+    background-color: $light-gray;
     
     background-size: cover;
     background-position: center;
@@ -18,44 +19,19 @@
 
 }
 
-.section-footer-cta {
-    text-align: center;   
-    
-    .wrap {
-        max-width: 760px;
-        margin: 0 auto 10px; 
-        
-        p {
-            font-size: 18px;
-            line-height: 29px;   
-        }
-    }
-}
-
-.footer-bottom {
-    position: relative;
-    
-    &:after {
-        content: '';
-        display: block;
-        position: absolute;  
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(236,236,236,0.9); 
-    }
-    
-    .footer-widgets,
-    .footer-copyright {
-        position: relative;
-        z-index: 2;   
-    }
-}
-
 
 .footer-widgets {
-    padding: 25px 0 0;
+    padding-top: rem-calc(35);
+    
+    @include breakpoint(large) {
+        padding-top: rem-calc(25);
+    }
+    
+    border-top: 10px solid $blue;
+    
+    @include breakpoint(large) {
+        border: none;   
+    }
     
     .wrap {
         position: relative;
@@ -70,24 +46,27 @@
         @include breakpoint(large) {
             padding: 0; 
         }
-                
-        * {
-            color: $blue; 
-        }
         
         .widget-title {
-            @include screen-reader-text;
+            color: $dark-gray;
+            font-size: rem-calc(22);
+            line-height: 1.18;
         }
         
         p {
-            font-size: 14px;
-            letter-spacing: 1.08px;
-            line-height: 20px;
-            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.625;
+            margin-bottom: rem-calc(15);
         }
         
         a:hover {
             color: $navy;   
+        }
+    }
+    
+    .widget:not(.widget_text):not(.be-social-widget) {
+        .widget-title {
+            @include screen-reader-text;   
         }
     }
    
@@ -100,19 +79,23 @@
     
     .widget {
         margin-bottom: 10px;
-        text-align: center;         
-    } 
-    
-    @include breakpoint(large) {
-        .large-order-1 .widget {
-            text-align: left;   
+        text-align: center;   
+        
+        &.widget_media_image {
+            img {
+                max-width: 255px!important;   
+            }
         }
         
-        .large-order-3 .widget {
-            text-align: right;   
+        .social-icons {
+            margin-top: rem-calc(15);
+            ul {
+                @include list-reset;
+                display: inline-block;   
+            }
         }
-     } 
-   
+    } 
+    
     
 }
 
@@ -128,11 +111,9 @@
     form {
         width: 100%!important;
         
-        @include breakpoint(large) {
-            overflow: hidden;  
-            border-radius: 0 51px 51px 0;
-            box-shadow: 0 0 6px 0 rgba(0,0,0,0.5); 
+        @include breakpoint(medium) {
             max-width: 320px;
+            display: flex;              
         }
     }
     
@@ -140,11 +121,8 @@
         padding-right: 0!important;
     }
     
-    .gform_wrapper {
-        margin: 0!important;  
-        flex: 1; 
-        
-        
+    .gform_wrapper form {
+        margin: 0 auto!important;      
     }
     
     .gfield_description.validation_message {
@@ -153,43 +131,21 @@
         
     .gform_body {
         padding: 0!important;
+        width: 100%;
         
         input {
             margin-top: 0!important;   
             height: 42px;
-            border: none!important;
+            border: 1px solid #C6C9CB!important;
         }
     }
     
-    .gform_body {
-        @include breakpoint(large down) {
-            box-shadow: 0 0 6px 0 rgba(0,0,0,0.5); 
-        }
-    }
-        
-    @include breakpoint(medium) {
-        
-        form {
-            display: table; 
-            
-            > * {
-                max-width: none!important;   
-            }
-        }
-        
-        .gform_body {
-            width: 100%!important;   
-            padding: 13px 0!important;
-        }
-        
-        .gform_body,
-        .gform_footer {
-            vertical-align: top!important;  
-            padding: 0!important;
-        }
+    .gform_fields li.gfield {
+        padding: 0!important;
     }
     
-        .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), 
+
+    .gform_wrapper li.gfield_error input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]), 
     .gform_wrapper li.gfield_error textarea {
         border: none!important;
     }
@@ -197,23 +153,23 @@
     .gform_footer {
          margin: 0!important;   
          line-height: 1;   
-         text-align: center;     
+         text-align: center;  
+         
+         @include breakpoint(medium) {
+            width: auto;
+            flex: 0 0 auto!important;
+            max-width: 100%;
+         }
          
          .button {
-             
-            @include breakpoint(large down) {
-                @include button;    
-                @include button-background( $blue, $navy );
-                @include button-color();
-                @include button-padding();
-                border-radius: 51px;
-                box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
-                display: inline-block!important;
-            }
-            
+            @include button;    
+            @include button-background( $blue, $navy );
+            @include button-color();
+            @include button-padding();
+            border-radius: 51px;
             color: #fff;   
             width: auto!important;
-            min-width: 120px!important;  
+            min-width: 0!important;  
             margin: 0!important; 
             background-color: $blue!important;
             height: 42px!important;
@@ -222,12 +178,21 @@
             line-height: 20px;
             text-align: center;
             text-align: center;
-            padding: 0!important;
+            padding: 0 20px!important;
             border: none!important;
+            box-shadow: none;
+            margin: 0 auto;
+            display: inline-block;
             
             &:hover {
                 background-color: $navy!important;
             }
+             
+            @include breakpoint(medium) {
+                display: block;
+                border-radius: 0 51px 51px 0;
+            }
+            
          }
     }
     
@@ -236,7 +201,7 @@
 
 .footer-copyright {
     
-    padding: 0 0 10px;  
+    padding: rem-calc(0 0 25);  
     
     @include breakpoint(large down) {
         text-align: center;
@@ -251,12 +216,7 @@
         font-size: 10px;
         line-height: 12px;
         text-align: center;
-        padding: 4px 0;   
-        
-        @include breakpoint(medium) {
-            max-width: 400px;
-            margin: 0 auto;
-        }
+        margin-bottom: 8px; 
         
         span {
              display: block;
@@ -284,4 +244,5 @@
    
       
 }
+
 

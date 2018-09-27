@@ -21,11 +21,8 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
                 return false;
             }
                         
-            $fields['footer_cta_text'] = get_field( 'footer_cta_text', 'option' );
-            $fields['footer_cta_link'] = get_field( 'footer_cta_link', 'option' );
-                        
-            $fields['show_footer_cta'] = $show_footer_cta;            
-                        
+            $fields = get_field( 'footer_cta', 'option' );
+                                                
             $this->set_fields( $fields );
                         
             
@@ -53,16 +50,33 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
         
         // Add content
         public function render() {
-                
-            $footer_cta_text = sprintf( '<div class="column"><h2>%s</h2></div>', $this->get_fields( 'footer_cta_text' ) );
             
-            $footer_cta_link = $this->get_fields( 'footer_cta_link' );
-            $footer_cta_link_url = $footer_cta_link['url'];
-            $footer_cta_link_title = empty( $footer_cta_link['title'] ) ? 'Donate Now!' : $footer_cta_link['title'];
-            $footer_cta_button = sprintf( '<div class="column shrink"><a href="%s" class="red button">%s</a></div>', $footer_cta_link_url, $footer_cta_link_title );
+            $fields = $this->get_fields();
+                                       
+            $row = new Element_Row(); 
+            $row->add_render_attribute( 'wrapper', 'class', 'align-middle text-center' );
+            $column = new Element_Column(); 
             
-            return sprintf( '<div class="row large-unstack align-middle">%s%s</div>', $footer_cta_text, $footer_cta_button );
-        
+                         
+            // Editor
+            $editor = new Element_Editor( [ 'fields' => $fields ] ); // set fields from Constructor
+            $column->add_child( $editor );
+            
+             // Button
+            $button = new Element_Button( [ 'fields' => $fields ]  ); // set fields from Constructor
+            $button->add_render_attribute( 'anchor', 'class', [ 'button', 'yellow' ] ); 
+            $modal = $fields['modal'];
+            $modal_button_text = $fields['modal_button_text'];
+            if( ! empty( $modal ) && !empty( $modal_button_text ) ) {
+                $button->set_settings( 'url', '#' ); 
+                $button->add_render_attribute( 'anchor', 'data-open', 'schedule-appointment' ); 
+                $button->set_settings( 'title', $modal_button_text ); 
+            }
+            $column->add_child( $button );
+            
+            $row->add_child( $column );
+            
+            $this->add_child( $row );         
         }
         
     }

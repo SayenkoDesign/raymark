@@ -1,0 +1,22 @@
+// Footer CTA
+
+.section-footer-cta {
+    
+    .wrap {
+        background-color: $navy;
+        padding: rem-calc(45px 0 15px);
+        
+        h2,
+        h3,
+        p,
+        a {
+            color: #fff    
+        }
+        
+        h2 {
+            span[style*="underline"] {
+                border-bottom-color: $white;   
+            }
+        }
+    }
+}

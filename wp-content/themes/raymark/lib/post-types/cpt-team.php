@@ -37,7 +37,7 @@ class CPT_Team extends CPT_Core {
 				'show_in_nav_menus'   => false,
 				'exclude_from_search' => true,
 				//'rewrite'             => array( 'slug' => 'teams' ),
-				'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+				'supports' => array( 'title', 'thumbnail', 'revisions' ),
 			)
 
         );

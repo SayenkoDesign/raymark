@@ -37,7 +37,7 @@ class Element_HTML extends Element_Base {
         if ( empty( $fields ) ) {
             return;
         }
-                                
+                                        
         if( empty( $this->get_fields( 'html' ) ) ) {
             return false;
         }        

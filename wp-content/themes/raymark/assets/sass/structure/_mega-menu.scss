@@ -1,5 +1,18 @@
 // Mega Menu
 
+.nav-primary .mega-menu {
+    .mega-menu-item { 			
+        
+        .menu-item-image,
+        .menu-item-icon {
+            span {
+                display: none;   
+            }
+        }
+
+    }
+}
+
 @include breakpoint(large) {
     
     .nav-primary .mega-menu {

@@ -81,7 +81,13 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
                 $html = sprintf( '<div class="row unstack-medium">%s</div>', $out );
 
                 $html = new Element_Html( [ 'fields' => array( 'html' => $html ) ]  ); // set fields from Constructor
-                $this->add_child( $html );
+                $column->add_child( $html );
+                
+                $row->add_child( $column );
+            
+                $this->add_child( $row );
+            
+                
             }
                         
             

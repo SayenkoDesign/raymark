@@ -4,10 +4,9 @@ Template Name: Contact
 */
 
 
-get_header(); ?>
+get_header(); 
 
-<?php
-get_template_part( 'template-parts/hero' );
+_s_get_template_part( 'template-parts/global', 'hero' );
 
 ?>
 
@@ -15,8 +14,7 @@ get_template_part( 'template-parts/hero' );
 
 	<main id="main" class="site-main" role="main">
 	<?php
- 	// Default
-	section_default();
+    section_default();
 	function section_default() {
 				
 		global $post;
@@ -33,38 +31,30 @@ get_template_part( 'template-parts/hero' );
         
         _s_structural_wrap( 'open' );
 		
-		print( '<div class="row">' );
-        
-            print( '<div class="column column-block small-12 large-6">' );
+		print( '<div class="row large-unstack">' );
+		
+		while ( have_posts() ) :
+
+			the_post();
             
-            while ( have_posts() ) :
-    
-                the_post();
+                //$map = wpgmaps_tag_pro( array( 'id' => 1 ) );
+                $google_map_shortcode = get_field( 'google_map_shortcode' );
+                $map = do_shortcode( $google_map_shortcode );
+                printf( '<div class="column small-order-2 large-order-1"><div class="map-container">%s</div></div>', $map );
+                
+                print( '<div class="column small-order-1 large-order-2">' );
                             
                 echo '<div class="entry-content">';
                 
                 the_content();
-                                
-                echo '</div>';
-                    
-            endwhile;
-            
-            print( '</div>' );
-            
-            print( '<div class="column column-block small-12 large-6">' );
-            
-                $form_id = get_field( 'gravity_form' );
-            
-                $form = GFAPI::get_form( $form_id );
                 
-                if( false !== $form ) {
-                   printf( '<div class="contact-form"><div class="wrap">%s</div></div>', 
-                            do_shortcode( sprintf( '[gravityform id="%s" title="true" description="true" ajax="true"]', $form_id ) ) );
-                }
-                                        
-            print( '</div>' );
-        
-        print( '</div>' );
+                echo '</div>';
+            
+            echo '</div>';
+            				
+		endwhile;
+		
+		print( '</div>' );
         
 		_s_structural_wrap( 'close' );
 	    echo '</section>';

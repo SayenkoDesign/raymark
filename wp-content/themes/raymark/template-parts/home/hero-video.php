@@ -54,7 +54,7 @@ if( ! class_exists( 'Hero_Video_Section' ) ) {
         
         public function after_render() {
         
-            $wave = sprintf( '<div class="wave-bottom show-for-large">%s</div>', get_svg( 'wave-bottom' ) );;
+            $wave = sprintf( '<div class="wave-bottom show-for-large">%s</div>', get_svg( 'wave-bottom' ) );
                 
             return sprintf( '</div>%s</section>', $wave );
         }
@@ -66,7 +66,7 @@ if( ! class_exists( 'Hero_Video_Section' ) ) {
             $fields = $this->get_fields();
             
             // BB Charcoal styles
-            $before_heading   = empty( $fields['before_heading'] ) ? '' : _s_format_string( $fields['before_heading'], 'h3' );            
+            $before_heading   = empty( $fields['before_heading'] ) ? '' : _s_format_string( sprintf( '<span>%s</span>', $fields['before_heading'] ), 'h2' );            
             $heading          = empty( $fields['heading'] ) ? '' : _s_format_string( $fields['heading'], 'h1' );
             $button           = empty( $fields['video_button_text'] ) ? '' : _s_format_string( $fields['video_button_text'], 'span' );
                                                 
@@ -78,13 +78,14 @@ if( ! class_exists( 'Hero_Video_Section' ) ) {
             
             $video = youtube_embed( $video_url );
             
-            $play = sprintf( '<button class="play-video" data-open="modal-video" data-src="%s">
+            $play = sprintf( '<button class="play-video align-center align-middle" data-open="modal-video" data-src="%s">
                               <span class="screen-reader-text">Play Video</span>%s %s</button>', 
                               $video, get_svg( 'video-play' ), $button );
             
             $html = sprintf( '<div class="hero-caption">%s%s%s</div>', $before_heading, $heading, $play );
                                                                         
             $row = new Element_Row(); 
+            $row->add_render_attribute( 'wrapper', 'class', 'align-middle text-center' );
             
             $column = new Element_Column(); 
 

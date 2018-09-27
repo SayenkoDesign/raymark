@@ -48,7 +48,17 @@
     }
     
     .sub-menu {
-        background-color: $sky-blue;   
+        background-color: $sky-blue;  
+        
+        ul {
+            margin: 0!important;   
+        }
+    }
+}
+
+@include breakpoint(medium down) {
+    .menu-item-column-icon {
+        display: none;   
     }
 }
 
@@ -57,7 +67,7 @@
     .nav-primary {
 		display: block;
 		width: auto;
-        
+                
         .menu .menu-item:focus {
             position: static;
         }
@@ -214,7 +224,7 @@
 			}
         }
         
-        .menu-item > a:focus ~ ul.sub-menu,
+        //.menu-item > a:focus ~ ul.sub-menu,
         .menu-item.focus > ul.sub-menu,
         .menu-item:hover > ul.sub-menu {
             opacity: 1;

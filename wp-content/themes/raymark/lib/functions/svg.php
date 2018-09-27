@@ -6,12 +6,11 @@ function get_svg( $type = '' ) {
     
         'wave-top' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1398.971 29.125"><path fill="#ECECEC" d="M411.091 9.229C707.978 20.058 1050.869 16.981 1439.764 0v28.258L0 19.931C9.944 3.163 146.974-.404 411.091 9.229z"/><path fill="#007ABE" d="M0 0c125.56 19.6 432.184 23.992 919.871 13.18 143.18-3.174 316.604 1.199 520.271 13.119v2.76H0V0z"/></svg>',
         
-        'wave-bottom' => '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1440 27">
-          <g fill="none" fill-rule="evenodd" stroke="none" stroke-width="1" transform="translate(0.000000, -474.000000) translate(808.000000, 491.000000) rotate(-180.000000) translate(-808.000000, -491.000000) translate(-43.000000, 474.000000)">
-            <path fill="#EFF3F1" d="M635 16c445 17 764 11 1028-9 52-4 52 3 1 20H224c10-17 147-20 411-11z"/>
-            <path fill="#3287C4" d="M225 9c449 25 389 11 920 0 144-4 317 1 519 13v12H225C-75 0-75-8 225 9z"/>
-          </g>
-        </svg>',
+        'wave-bottom' => '<svg viewBox="0 0 1442 39" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M1029.91 29.77C733.022 18.943 390.13 22.02 1.237 39V1L1441 19.07c-9.944 16.767-146.974 20.334-411.09 10.7z" fill="#fff"/><path d="M1442 39c-126.227-19.599-433.184-23.992-920.871-13.18C377.949 28.995 204.526 24.622.857 12.7l1-11.673L1442 .347z" fill="#007abe"/></g></svg>',
+        
+        'wave-footer-bottom' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1442 39"><path fill="#FFF" d="M1029.909 29.771C733.021 18.942 388.894 22.02 0 39V1l1441 18.069c-9.944 16.768-146.975 20.335-411.091 10.702z"/><path fill="#007ABE" d="M1442 39c-126.227-19.599-433.184-23.992-920.871-13.18C377.95 28.994 203.669 24.621 0 12.7V0h1442v39z"/></svg>',
+        
+        'phone-mobile' => '<svg width="38" height="38" xmlns="http://www.w3.org/2000/svg"><path d="M38 29.407v1.718c-.516 3.797-4.293 6.81-8.975 6.874-3.353.046-7.312-1.772-10.502-3.437C9.884 30.054 1.879 20.365 0 10.312V8.021C1.128 3.675 2.848-.08 8.402 0c1.325 1.278 1.91 2.678 2.864 4.392.692 1.243 2.545 3.586 2.483 4.774-.145 2.78-4.582 3.229-4.774 5.537-.108 1.301 1.719 3.667 2.482 4.774.971 1.408 2.15 2.925 3.247 4.01 1.226 1.213 6.583 5.81 8.783 5.537 2.045-.255 2.963-4.65 5.347-4.774.998-.052 3.143 1.49 4.583 2.291 1.88 1.047 3.676 2.106 4.583 2.865" fill="#007ABE" fill-rule="evenodd"/></svg>',
                            		        
         'arrow-left' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 22"><g fill="none" fill-rule="evenodd"><path class="arrow" 
         fill="#007ABE" d="M13 0a1 1 0 0 0-2 0L0 10a1 1 0 0 0 0 2l11 10h2v-2L3 11l10-9V0z"/><path class="line" stroke="#007ABE" stroke-linecap="square" stroke-width="3" d="M3 11h26"/></g></svg>',
@@ -19,6 +18,9 @@ function get_svg( $type = '' ) {
         'arrow-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 22"><g fill="none" fill-rule="evenodd"><path class="arrow" 
         fill="#007ABE" d="M18 22a1 1 0 0 0 2 0l11-10a1 1 0 0 0 0-2L20 0h-2v2l10 9-10 9v2z"/><path class="line" stroke="#007ABE" stroke-linecap="square" stroke-width="3" d="M28 11H2"/></g></svg>',
    
+   
+    'service-icon' => '<svg height="23" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M15.622 5.725c-.083-.307-.251-.634-.376-.92C13.761 1.267 10.514 0 7.892 0 4.382 0 .517 2.331 0 7.135v.98c0 .042.014.41.034.595.29 2.288 2.114 4.722 3.477 7.011C4.976 18.174 6.497 20.588 8.004 23c.93-1.575 1.856-3.17 2.763-4.703.248-.45.535-.898.783-1.328.164-.287.48-.573.624-.838C13.64 13.473 16 10.795 16 8.157V7.074c0-.286-.358-1.288-.378-1.349zM7.885 11c-1.065 0-2.23-.52-2.806-1.958C4.993 8.813 5 8.354 5 8.312v-.646C5 5.834 6.592 5 7.977 5 9.681 5 11 6.334 11 8c0 1.667-1.41 3-3.115 3z" 
+    fill="#007abe" fill-rule="evenodd"/></svg>',
 
     'chevron' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 43">
           <g id="Mockups" fill="none" fill-rule="evenodd">

@@ -63,19 +63,19 @@
 .social-icons {
     @include list-reset;
     
-    height: 32px;
+    height: 45px;
       
     li {
        display: inline-block;
        padding: 0 10px 0;   
-       height: 32px;
+       height: 45px;
       
     }
     
     a {
         transition: $transition;
-        width: 32px;
-        height: 32px;
+        width: 45px;
+        height: 45px;
         display: block;
         border-radius: 50%;
         position: relative;

@@ -23,6 +23,7 @@
     include_once( 'includes/table-class.php' );
 
     include_once( 'includes/theme-functions/shortcodes.php' );
+    include_once( 'includes/theme-functions/array.php' );
 
 /****************************************
 	Functions
@@ -74,10 +75,10 @@ include_once( 'foundation/class-foundation-grid.php' );
 /****************************************
 	Post Types
 *****************************************/
+    include_once( 'post-types/cpt-faq.php' );
     include_once( 'post-types/cpt-service.php' );
-    // include_once( 'post-types/cpt-team.php' );
-    // include_once( 'post-types/cpt-testimonial.php' );    
-    // include_once( 'post-types/cpt-staff.php' ); 
+    include_once( 'post-types/cpt-team.php' );
+    include_once( 'post-types/cpt-testimonial.php' );    
     
 /****************************************
 	Widgets

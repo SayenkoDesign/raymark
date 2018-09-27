@@ -23,8 +23,8 @@
     
     .close-button {
 		position: absolute;
-		top: rem-calc(map-get($grid-column-gutter, small)/2); 
-		right: rem-calc(map-get($grid-column-gutter, small)/2);
+		top: rem-calc(-5)!important; 
+		right: rem-calc(10px);
 		font-size: 40px;
 		outline: none;
         color: #fff;
@@ -46,6 +46,21 @@
     top: 50%!important;
     left: 50%!important;
     transform: translate(-50%,-50%)!important;  
+    
+    .close-button {
+		position: absolute;
+		top: rem-calc(map-get($grid-column-gutter, small)/2); 
+		right: rem-calc(map-get($grid-column-gutter, small)/2);
+		font-size: 40px;
+		outline: none;
+        color: #fff;
+        cursor: pointer;
+        
+        @include breakpoint(large) {
+            top: rem-calc(map-get($grid-column-gutter, large)/2); 
+		    right: rem-calc(map-get($grid-column-gutter, large)/2);
+        }
+  	}
     
     .column {
         padding-left: 0;

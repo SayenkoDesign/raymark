@@ -7105,6 +7105,12 @@ return Outlayer;
       }
     );
     
+    
+    // Prevent reveal anchors from default behoaviour
+    $('a[data-open]').on('click', function(e){
+        e.preventDefault();
+    });
+    
 }(document, window, jQuery));
 
 (function (document, window, $) {

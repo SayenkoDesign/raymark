@@ -36,9 +36,18 @@
     <header id="masthead" class="site-header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
 		<div class="wrap">
                     
-			<div class="row">
+			<div class="row align-middle">
+                
+                    <?php
+                    $phone = '(206) 440-9077';
+                             
+                    if( !empty( $phone ) ) {
+                        $number = _s_format_telephone_url( $phone );
+                        printf( '<a href="%s" class="phone hide-for-large">%s</a>', $number, get_svg( 'phone-mobile' ) );
+                    }
+                    ?>
                                 
-                <div class="large-5 xxlarge-7 columns site-branding">
+                <div class="columns site-branding">
                     <div class="site-title">
                     <?php
                     $site_url = home_url();
@@ -49,12 +58,21 @@
                     </div>
                 </div><!-- .site-branding -->
                                     
-                <div class="large-7 xxlarge-5 columns header-widgets show-for-large">
+                <div class="columns shrink header-widgets show-for-large">
+                    <div class="row align-middle">
                     <?php
-                    if(is_active_sidebar('header')){
-                        dynamic_sidebar('header');
-                    }
-                    ?>                    
+                    $tagline = '<span>24/7 Emergency Service</span>';
+                    
+                    $phone = sprintf( '<a href="%s">%s</a>', _s_format_telephone_url( $phone ), $phone );
+                    $service_area = sprintf( '<span>%s 24/7 Service Area</span>', get_svg( 'service-icon' ) );
+                    printf( '<div class="widget column widget-text">%s%s%s</div>', $tagline, $phone, $service_area );
+                    
+                    $schedule_appointment = sprintf( '<button class="button blue" data-open="schedule-appointment"><span>%s</span></a>', 
+                                            __( 'Schedule Appointment' ) );
+                    
+                    printf( '<div class="widget column widget-menu">%s</div>', $schedule_appointment );
+                    ?> 
+                    </div>                   
                 </div> 
                                                       
 			</div>

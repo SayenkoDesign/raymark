@@ -33,38 +33,37 @@ class Element_Button extends Element_Base {
 	 * @access protected
 	 */
 	public function render() {
+                                                
+        $button = $this->get_fields( 'button' );
+        
+        $defaults = [ 
+               'url' => '',
+               'title' => '',
+               'target' => ''
+        ];   
+                                                             
+        $button = wp_parse_args( $button, $defaults );
                                 
-		$fields = $this->get_fields();
-                                                                
-        if ( ! isset( $fields['button'] ) || empty( $fields['button'] ) ) {
-            return;
+        if( $this->get_settings( 'url' ) ) {
+            $this->add_render_attribute( 'anchor', 'href', $this->get_settings( 'url' ) );
         }
-        
-        $button = $fields['button'];
-        
-        
-        
-        if( empty( $button['text'] ) ) {
-            return;
+        else {
+            $this->add_render_attribute( 'anchor', 'href', $button['url'] );
         }
-        
-        
                 
-        if ( 'Page' == $button['link'] ) {
-                        
-			$this->add_render_attribute( 'anchor', 'href', $button['page'] );
-		}
+        if( $this->get_settings( 'title' ) ) {
+            $button['title'] = $this->get_settings( 'title' );
+        }
         
-		if ( 'Absolute URL' == $button['link'] ) {
-                        
-			$this->add_render_attribute( 'anchor', 'href', $button['url'] );
-		}
+        $button = array_filter( $button );
         
-        // $this->add_render_attribute( 'wrapper', 'class', 'button' ); 
-        
-        $this->add_render_attribute( 'wrapper', 'class', 'element-button' );
+        if( empty( $button ) ) {
+            return;
+        }
+                                                                          
+        $this->add_render_attribute( 'wrapper', 'class', 'element-link' );
                                     
-        return sprintf( '<div %s><p><a %s><span>%s</span></a></p></div>', $this->get_render_attribute_string( 'wrapper' ), $this->get_render_attribute_string( 'anchor' ), $button['text'] );
+        return sprintf( '<div %s><p><a %s><span>%s</span></a></p></div>', $this->get_render_attribute_string( 'wrapper' ), $this->get_render_attribute_string( 'anchor' ), $button['title'] );
 	}
     	
 }

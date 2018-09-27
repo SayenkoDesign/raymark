@@ -3,16 +3,17 @@
     display: block;
     margin: 0 auto;    
     text-align: center;
+    transition: none;
     text-transform: uppercase;
     text-decoration: none!important;
-
+    box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12); 
 	color: #FFFFFF;
 	font-family: $cubano;
 	font-size: 13px;
 	letter-spacing: 1.1px;
 	line-height: 20px;
 	text-align: center;
-    min-width: 180px;
+    min-width: 194px;
     
     &:hover {
         background-color: transparent;   
@@ -78,23 +79,53 @@
     }  
 }
 
-@mixin button-padding( $top: 13px, $right: 19px, $bottom: 13px, $left: 19px ) {
+@mixin button-padding( $top: 16px, $right: 19px, $bottom: 16px, $left: 19px ) {
     padding: $top $right $bottom $left;
+}
+
+
+@mixin button-blue {
+    @include button-background( $blue, $sky-blue );
+    @include button-color();
+    @include button-padding();
+    @include button-border($yellow, $yellow, 3px);
+    border-radius: 23px;
+}
+
+@mixin button-white {
+    @include button-background( transparent, white );
+    @include button-color(white, $sky-blue, white, $sky-blue, $blue);
+    @include button-border(white, $sky-blue, 3px);
+    @include button-padding();
+    border-radius: 23px;
+}
+
+@mixin button-yellow {
+    @include button-background( $yellow, $white );
+    @include button-color($navy, $navy, $navy, $navy, $navy);
+    @include button-padding();
+    border-radius: 23px;
 }
 
 
 .button {
     @include button;   
-    box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12); 
         
     &.blue {
-        @include button-background( $blue, $navy );
-        @include button-color();
-        @include button-padding();
-        border-radius: 23px;
+        @include button-blue; 
     }
     
-    
+   &.white {
+       @include button-white; 
+   } 
+   
+   &.yellow {
+       @include button-yellow; 
+       
+       @include breakpoint(medium) {
+           min-width: 250px;
+       }
+   } 
 }
 
 
