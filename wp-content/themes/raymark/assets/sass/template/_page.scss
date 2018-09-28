@@ -110,6 +110,10 @@ button:focus {
     border-radius: 50%;
     box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
     position: relative;
+    width: 116px;
+    height: 116px;
+    display: block;
+    background: #fff;
     
     svg,
     img {

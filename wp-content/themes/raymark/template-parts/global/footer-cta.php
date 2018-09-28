@@ -56,6 +56,7 @@ if( ! class_exists( 'Footer_CTA_Section' ) ) {
             $row = new Element_Row(); 
             $row->add_render_attribute( 'wrapper', 'class', 'align-middle text-center' );
             $column = new Element_Column(); 
+            $column->add_render_attribute( 'wrapper', 'class', 'column-block' );  
             
                          
             // Editor

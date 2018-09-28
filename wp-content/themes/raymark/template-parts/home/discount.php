@@ -66,7 +66,7 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
                 if( ! empty( $discount_url ) ) {
                     $url = $discount_url['url'];
                     if( ! empty( $url ) ) {
-                        $out .= sprintf( '<div class="column"><a href="%s">%s</a></div>', $url, $discount_photo );
+                        $out .= sprintf( '<div class="column column-block pipe-right"><a href="%s">%s</a></div>', $url, $discount_photo );
                     }
                 }
                 
@@ -78,7 +78,7 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
             
                 $column = new Element_Column(); 
                 
-                $html = sprintf( '<div class="row unstack-medium">%s</div>', $out );
+                $html = sprintf( '<div class="row unstack-medium align-center">%s</div>', $out );
 
                 $html = new Element_Html( [ 'fields' => array( 'html' => $html ) ]  ); // set fields from Constructor
                 $column->add_child( $html );

@@ -67,6 +67,7 @@ h2 {
 }
 
 h3 {
+    color: $header-color;
     margin-bottom: 10px;
 }
 
@@ -216,28 +217,19 @@ ol:not([class]) {
             
             &:before {
                 content: '';
-                width: 21px;
-                height: 21px;
+                width: 24px;
+                height: 24px;
                 position: absolute;
                 top: 0px;
                 left: 0;
-                background: $blue;
-                border-radius: 50%;
+                background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(1 1)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M16.985 11.214l-3.33 3.33-.117.116-.388-.389.116-.117 3.33-3.33-3.32-3.32-.12-.12.382-.382.12.12 3.59 3.59.12.119-.383.383z' fill='%23007ABE'/%3E%3Cpath d='M5.754 10.83h10.83' stroke='%23007ABE' stroke-width='1.6' stroke-linecap='square'/%3E%3Ccircle stroke='%23007ABE' stroke-width='2' cx='11' cy='11' r='11'/%3E%3C/g%3E%3C/svg%3E%0A");
+                
+                /*
+                background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(1 1)' fill='none' fill-rule='evenodd'%3E%3Cpath d='M16.985 11.214l-3.33 3.33-.117.116-.388-.389.116-.117 3.33-3.33-3.32-3.32-.12-.12.382-.382.12.12 3.59 3.59.12.119-.383.383z' fill='%23FFF'/%3E%3Cpath d='M5.754 10.83h10.83' stroke='%23FFF' stroke-width='1.6' stroke-linecap='square'/%3E%3Ccircle stroke='%23FFF' stroke-width='2' cx='11' cy='11' r='11'/%3E%3C/g%3E%3C/svg%3E%0A");
+                */
             }
             
-            &:after {
-                content: '';
-                display: inline-block;
-                border: solid #fff;
-                border: solid #fff;
-                border-width: 0 1px 1px 0;
-                transform: rotate(-45deg);
-                width: 6px;
-                height: 6px;  
-                position: absolute;
-                top: 7.5px;
-                left: 6px; 
-            }
+            
     
             
         }   

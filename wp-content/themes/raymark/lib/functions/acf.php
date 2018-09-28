@@ -1,5 +1,4 @@
 <?php
-
 function my_acf_init() {
 	
 	acf_update_setting('google_api_key', GOOGLE_API_KEY );

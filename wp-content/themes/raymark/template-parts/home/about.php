@@ -52,7 +52,14 @@ if( ! class_exists( 'Home_About_Section' ) ) {
                                             
             // Button
             $button = new Element_Button( [ 'fields' => $fields ]  ); // set fields from Constructor
-            $button->add_render_attribute( 'anchor', 'class', [ 'button', 'green' ] ); 
+            $button->add_render_attribute( 'anchor', 'class', [ 'button', 'blue' ] ); 
+            $modal = $this->get_fields( 'modal' );
+            $modal_button_text = $this->get_fields( 'modal_button_text' );
+            if( ! empty( $modal ) && !empty( $modal_button_text ) ) {
+                $button->set_settings( 'url', '#' ); 
+                $button->add_render_attribute( 'anchor', 'data-open', 'schedule-appointment' ); 
+                $button->set_settings( 'title', $modal_button_text ); 
+            }
             $column->add_child( $button );
             
             $grid = $this->get_fields( 'grid' );
@@ -65,14 +72,13 @@ if( ! class_exists( 'Home_About_Section' ) ) {
                     
                     $title = _s_format_string( $item['grid_title'], 'h3' );
                     
-                    $thumbnail = _s_get_acf_image( $item['grid_image'], 'medium' );
+                    $thumbnail = sprintf( '<div class="icon">%s</div>', _s_get_acf_image( $item['grid_image'], 'icon-medium' ) );
                                                                      
-                    $grid_items .= sprintf( '<div class="column column-block"><div class="grid-item">%s%s</div></div>', 
-                                            $thumbnail, $title );
+                    $grid_items .= sprintf( '<div class="column column-block"><div class="grid-item">%s<div class="panel" data-equalizer-watch>%s</div></div></div>', $thumbnail, $title );
                 }
             }
             
-            $grid = sprintf( '<div class="grid"><div class="row small-up-1 medium-up-2 large-up-3 xlarge-up-4">%s</div></div>', $grid_items );
+            $grid = sprintf( '<div class="grid"><div class="row small-up-1 medium-up-2 xlarge-up-3 xxxlarge-up-4" data-equalizer data-equalize-on="medium">%s</div></div>', $grid_items );
             
             $html = new Element_Html( [ 'fields' => [ 'html' => $grid ] ] ); // set fields from Constructor
             $column->add_child( $html );

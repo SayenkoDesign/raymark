@@ -61,7 +61,7 @@ class Element_Button extends Element_Base {
             return;
         }
                                                                           
-        $this->add_render_attribute( 'wrapper', 'class', 'element-link' );
+        $this->add_render_attribute( 'wrapper', 'class', 'element-button' );
                                     
         return sprintf( '<div %s><p><a %s><span>%s</span></a></p></div>', $this->get_render_attribute_string( 'wrapper' ), $this->get_render_attribute_string( 'anchor' ), $button['title'] );
 	}

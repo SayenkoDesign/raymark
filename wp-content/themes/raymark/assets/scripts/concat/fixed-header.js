@@ -11,7 +11,7 @@
         var $win = $(window), 
             $self = $(this),
             isShow = false,
-            delta = 400, // distance from top where its active
+            delta = 1000, // distance from top where its active
             lastScrollTop = 0;
             
         var scrollHeight = $(document).height();
@@ -33,7 +33,7 @@
             console.log( 'scrollBottom:' + scrollBottom );
             */
             
-            if( scrollHeight < (delta * 2) ) {
+            if( scrollHeight < (delta * 1.5) ) {
                 return;
             }
             

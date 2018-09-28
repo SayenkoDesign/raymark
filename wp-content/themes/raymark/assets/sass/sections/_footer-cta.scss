@@ -9,7 +9,7 @@
         h2,
         h3,
         p,
-        a {
+        a[href^="tel:"] {
             color: #fff    
         }
         

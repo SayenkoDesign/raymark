@@ -1,4 +1,25 @@
 <?php
+function content_span_inside_h2($content) 
+{
+  	$a = array('<h2>','</h2>');
+	$b = array('<h2><span>','</span></h2>');
+	$content = str_replace( $a, $b, $content );
+  	return $content;
+}
+add_filter( 'the_content', 'content_span_inside_h2' );
+
+
+function acf_span_inside_h2( $value, $post_id, $field ) {
+	
+    $a = array('<h2>','</h2>');
+	$b = array('<h2><span>','</span></h2>');
+	$value = str_replace( $a, $b, $value );	
+	// return
+	return $value;
+}
+add_filter('acf/format_value/type=wysiwyg', 'acf_span_inside_h2', 10, 3);
+
+
 // Add modals to footer
 function _s_footer() {
     _s_get_template_part( 'template-parts/modal', 'schedule-appointment' );   

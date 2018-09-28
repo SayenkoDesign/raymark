@@ -1,0 +1,40 @@
+/* CSS Document */
+
+
+
+.section-testimonials {
+    
+    text-align: center;
+
+    .content {
+        padding: 30px 50px;
+        
+        @include breakpoint(large) {
+            padding: 30px 100px;   
+        }
+        
+        blockquote {
+            border: none;   
+            max-width: 80%;
+            margin: 0 auto;
+            
+            p {
+                font-family: $cubano;
+                font-size: 22px;
+                font-style: italic;
+                line-height: 32px;
+                margin-bottom: 22px;
+            }
+            
+            h3 {
+                color: #686C71;
+                font-family: $cubano;
+                font-size: 18px;
+                letter-spacing: 0.5px;
+                line-height: 29px;
+                margin-top: 30px;
+            }
+        }
+    }
+    
+}

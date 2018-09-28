@@ -38,7 +38,7 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
                             
             $this->add_render_attribute( 'wrap', 'class', 'wrap' );
             
-            $rain_drop = sprintf('<div class="stars"><img src="%sservice/drops.svg" alt="rain drops" width="139" height=151" /></div>', trailingslashit( THEME_IMG ) );
+            $rain_drop = sprintf('<div class="stars"><img src="%sservice/drops.svg" alt="rain drops" width="139" height="151" /></div>', trailingslashit( THEME_IMG ) );
             
             return sprintf( '<%s %s>%s<div %s>', 
                             esc_html( $this->get_html_tag() ), 

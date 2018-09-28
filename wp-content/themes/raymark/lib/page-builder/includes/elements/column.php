@@ -54,8 +54,7 @@ class Element_Column extends Element_Base {
 
 		$this->add_render_attribute(
 			'wrapper', 'class', [
-				'column',
-                'column-block'
+				'column'
 			]
 		);        
     }

@@ -18,7 +18,7 @@
             
             .wrap {
                 background-color: $light-gray;
-                padding: 55px 0 0;   
+                padding: 55px 0;   
             }
             
             @include breakpoint(large) {
@@ -41,10 +41,10 @@
         
         section:nth-child(odd) {
             
-            .point {
-                display: none;   
+            .wrap {
+                padding-bottom: 55px;   
             }
-            
+
             @include breakpoint(large) {
         
                 .column-block {

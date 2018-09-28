@@ -15,8 +15,7 @@
 get_header(); ?>
 
 <?php
-get_template_part( 'template-parts/hero' );
-
+_s_get_template_part( 'template-parts/global', 'hero' );
 ?>
 
 <div id="primary" class="content-area">
@@ -29,7 +28,7 @@ get_template_part( 'template-parts/hero' );
 				
 		global $post;
 		
-		$attr = array( 'class' => 'section default' );
+		$attr = array( 'class' => 'section-default' );
 		
 		$args = array(
             'html5'   => '<section %s>',

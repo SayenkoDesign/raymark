@@ -18,7 +18,7 @@ _s_get_template_part( 'template-parts/service', 'hero' );
     
     _s_get_template_part( 'template-parts/service', 'faq' );
     
-   // _s_get_template_part( 'template-parts/service', 'contact' );  
+    _s_get_template_part( 'template-parts/service', 'contact' );  
    
     _s_get_template_part( 'template-parts/service', 'about' );	
     
