@@ -42,7 +42,7 @@ if( ! class_exists( 'Service_Contact_Section' ) ) {
         public function render() {
                                                                         
             $row = new Element_Row(); 
-            
+            $row->add_render_attribute( 'wrapper', 'class', 'large-unstack' );
             
             
             if( ! empty( $this->get_fields( 'column_left' ) ) ) {
@@ -55,7 +55,7 @@ if( ! class_exists( 'Service_Contact_Section' ) ) {
             
             if( ! empty( $this->get_fields( 'column_left' ) ) ) {
                 $icon = sprintf('<span class="icon shadow"><img src="%sservice/siren.svg" alt="rain drops" width="61" height="78" /></span>', trailingslashit( THEME_IMG ) );
-                $content_right = sprintf( '%s<div class="caption">%s</div>', $icon, $this->get_fields( 'column_right' ));
+                $content_right = sprintf( '<div class="caption">%s<div class="wrap">%s</div></div>', $icon, $this->get_fields( 'column_right' ));
                 $editor = new Element_Editor( [ 'fields' => [ 'editor' => $content_right ] ]  );
                 $column = new Element_Column(); 
                 $column->add_child( $editor );

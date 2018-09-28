@@ -56,7 +56,7 @@
     }
 }
 
-@include breakpoint(medium down) {
+@include breakpoint(xlarge down) {
     .menu-item-column-icon {
         display: none;   
     }
@@ -66,7 +66,7 @@
     
     .nav-primary {
 		display: block;
-		width: auto;
+		width: 100%;
                 
         .menu .menu-item:focus {
             position: static;
@@ -93,7 +93,11 @@
 			background: transparent;
 			border: none;
 			width: auto;
-			margin: 0 25px;
+			margin: 0 15px;
+            
+            @include breakpoint(xxxlarge) {
+                margin: 0 30px;  
+            }
             
  			a {
 				color: #fff;

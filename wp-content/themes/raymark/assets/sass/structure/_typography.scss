@@ -49,6 +49,10 @@ h6 {
     }
 }
 
+h1 span {
+    top: -10px!important;
+}
+
 
 h2,
 h3,
@@ -104,6 +108,7 @@ ol:not([class]) {
 @mixin heading-lines( $border-color:$yellow ) {
     display: inline-block;
     position: relative;
+    padding: 0 60px;
     
     &::before,
     &::after {
@@ -118,17 +123,15 @@ ol:not([class]) {
     }
     
     &::before {
-        left: -56px;
+        left: -5px;
     }
     
     &::after {
-        right: -56px;
+        right: -5px;
     }
     
     span {
-        
-        padding: rem-calc(0 10);
-        
+                
         &:before,
         &:after {
             content: '';
@@ -141,11 +144,11 @@ ol:not([class]) {
         }
         
         &::before {
-            left: -40px;
+            left: 10px;
         }
         
         &::after {
-            right: -40px;
+            right: 10px;
         }   
     }
 }
@@ -153,6 +156,7 @@ ol:not([class]) {
 @mixin right-heading-lines( $border-color:$yellow ) {
     display: inline-block;
     position: relative;
+    padding-right: 60px;
     
     &::after {
         content: '';
@@ -166,7 +170,7 @@ ol:not([class]) {
     }
     
     &::after {
-        right: -56px;
+        right: -5px;
     }
     
     span {
@@ -183,7 +187,7 @@ ol:not([class]) {
         }
         
         &::after {
-            right: -40px;
+            right: 10px;
         }   
     }
 }
@@ -210,8 +214,8 @@ ol:not([class]) {
         li {
             position: relative;
             
-            min-height: 21px;
-            padding: 0 0 5px 34px;
+            min-height: 24px;
+            padding: 0 0 5px 40px;
             line-height: inherit;
             margin-bottom: 5px;
             

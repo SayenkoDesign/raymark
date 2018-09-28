@@ -44,10 +44,16 @@ if( ! class_exists( 'Hero_Section' ) ) {
             
             $fields = $this->get_fields(); 
             
-            $heading        = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
-            $heading        = _s_format_string( $heading, 'h1' );
+            $heading = $this->get_fields( 'heading' ) ? $this->get_fields( 'heading' ) : get_the_title();
+            $heading = preg_replace('/#/', '<span style="text-decoration: underline;">', $heading, 1); // will replace first 'abc'
+            $heading = preg_replace('/#/', '</span>', $heading);    // will replace all others
+            $heading = _s_format_string( $heading, 'h1' );
+            
+            
+            $icon = $this->get_fields( 'icon' );
+            $icon = sprintf( '<div class="icon">%s</div>', _s_get_acf_image( $icon, 'medium' ) );
 
-            return sprintf( '<div class="row"><div class="column">%s</div></div>', $heading );
+            return sprintf( '<div class="row"><div class="column"><div class="caption">%s%s</div></div></div>', $icon, $heading );
         }
     }
 }

@@ -27,7 +27,7 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
     
             $this->add_render_attribute(
                 'wrapper', 'class', [
-                     $this->get_name() . '-discount'
+                     $this->get_name() . '-faq'
                 ]
             );            
             
@@ -38,7 +38,7 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
                             
             $this->add_render_attribute( 'wrap', 'class', 'wrap' );
             
-            $rain_drop = sprintf('<div class="stars"><img src="%sservice/drops.svg" alt="rain drops" width="139" height="151" /></div>', trailingslashit( THEME_IMG ) );
+            $rain_drop = sprintf('<div class="raindrop"><img src="%sservice/drops.svg" alt="rain drops" width="139" height="151" /></div>', trailingslashit( THEME_IMG ) );
             
             return sprintf( '<%s %s>%s<div %s>', 
                             esc_html( $this->get_html_tag() ), 
@@ -58,6 +58,8 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
             
             $column = new Element_Column(); 
             
+            $fields['heading'] = sprintf( '<span>%s</span>', $fields['heading'] );
+            
             // Header
             $header = new Element_Header( [ 'fields' => $fields ]  ); // set fields from Constructor
             $column->add_child( $header );
@@ -66,6 +68,7 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
             
  
             $row = new Element_Row(); 
+            $row->add_render_attribute( 'wrapper', 'class', 'large-unstack' );
             
             $column = new Element_Column(); 
         
