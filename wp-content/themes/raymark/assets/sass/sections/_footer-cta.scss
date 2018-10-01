@@ -4,7 +4,7 @@
     
     .wrap {
         background-color: $navy;
-        padding: rem-calc(45px 0 15px);
+        padding: rem-calc(35px 0 5px);
         
         h2,
         h3,
@@ -14,6 +14,7 @@
         }
         
         h2 {
+            margin: 0 auto;
             span[style*="underline"] {
                 border-bottom-color: $white;   
             }

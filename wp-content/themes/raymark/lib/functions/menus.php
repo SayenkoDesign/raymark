@@ -1,5 +1,33 @@
 <?php
 
+function _s_primary_menu_menu_atts( $atts, $item, $args ) {
+              
+    if( 'primary' != $args->theme_location ) {
+        return $items;
+    }
+          
+    $classes = $item->classes;
+    
+    foreach( $classes as $class ) {
+                
+        if( strpos( $class, 'service' ) !== false ) {
+            $post_id = $item->object_id;
+            
+            $fields = get_field( 'hero', $post_id );
+            if( ! empty( $fields['icon'] ) ) {
+                $icon = $fields['icon'];
+                $icon = _s_get_acf_image( $icon, 'medium', true );
+                $atts['data-icon'] = esc_html( $icon );
+            }
+        }
+            
+    }
+      
+    return $atts;
+}
+
+add_filter( 'nav_menu_link_attributes', '_s_primary_menu_menu_atts', 99, 3 );
+
 // Contact Modal
 function _s_contact_menu_atts( $atts, $item, $args ) {
       $classes = $item->classes;

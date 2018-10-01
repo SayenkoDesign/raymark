@@ -3,7 +3,7 @@
 	'use strict';
 
 	$('.section-testimonials .slick').slick({
-      dots: false,
+      dots: true,
       arrows: true,
       infinite: true,
       speed: 300,
@@ -12,7 +12,7 @@
     });
     
     
-    $('.section-home-news .slick').slick({
+   /* $('.section-home-news .slick').slick({
       dots: true,
       arrows: false,
       infinite: true,
@@ -58,7 +58,7 @@
     
     $('.slick-posts').on('beforeChange', function(event, slick, currentSlide, nextSlide){
         new Foundation.Equalizer($('#slick-posts'));
-    });
+    });*/
    
     
 }(document, window, jQuery));

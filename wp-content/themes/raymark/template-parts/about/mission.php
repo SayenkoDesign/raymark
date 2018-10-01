@@ -53,7 +53,9 @@ if( ! class_exists( 'About_Mission_Section' ) ) {
             
             $description = _s_format_string( $this->get_fields( 'description' ), 'p' );
             
-            $caption = sprintf( '<div class="column"><div class="caption">%s<div class="wrap">%s%s</div></div></div>', $logo_mark, $subheading, $description );
+            $quote_mark = sprintf( '<div class="quote-mark"><img src="%sabout/quote-gray.svg" /></div>', trailingslashit( THEME_IMG ) );
+            
+            $caption = sprintf( '<div class="column"><div class="caption">%s<div class="wrap">%s%s%s</div></div></div>', $logo_mark, $subheading, $description, $quote_mark );
             
             $photos = $this->get_fields( 'photos' );
             

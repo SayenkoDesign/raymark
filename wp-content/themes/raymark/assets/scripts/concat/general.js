@@ -66,4 +66,19 @@
         e.preventDefault();
     });
     
+    
+    var hoverTimeout;
+    var $img = $('.menu-item-column-icon img'),
+    dsrc = $img.attr('src');
+    $('.nav-primary .menu-item-object-service a').hover(function() {
+        $img.attr('src', $(this).data('icon'));
+        clearTimeout(hoverTimeout);
+    }, function() {
+        hoverTimeout = setTimeout(function() {
+            $img.attr('src', dsrc);
+        }, 3000);
+        
+    });
+    
+    
 }(document, window, jQuery));

@@ -46,7 +46,7 @@ if( ! class_exists( 'Service_Testimonials_Section' ) ) {
                         
             $rows = array_map( array( $this, 'wrap_columns' ), $columns );
                                        
-            return sprintf( '<div class="row align-middle"><div class="column"><h2>Reviews</h2><div class="slick">%s</div></div></div>', 
+            return sprintf( '<div class="row align-middle"><div class="column"><header><h2><span>Reviews</span></h2></header><div class="slick">%s</div></div></div>', 
                             join( '', $rows ) );
         }
         
@@ -89,7 +89,7 @@ if( ! class_exists( 'Service_Testimonials_Section' ) ) {
         
         private function wrap_columns( $columns ) {
             if( ! empty( $columns ) ) {
-                return sprintf( '<div class="slide"><div class="row align-middle">%s</div></div>', join( '', $columns ) );
+                return sprintf( '<div class="slide"><div class="row large-unstack align-middle">%s</div></div>', join( '', $columns ) );
             }
         }
       

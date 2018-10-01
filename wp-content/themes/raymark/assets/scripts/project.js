@@ -7111,6 +7111,21 @@ return Outlayer;
         e.preventDefault();
     });
     
+    
+    var hoverTimeout;
+    var $img = $('.menu-item-column-icon img'),
+    dsrc = $img.attr('src');
+    $('.nav-primary .menu-item-object-service a').hover(function() {
+        $img.attr('src', $(this).data('icon'));
+        clearTimeout(hoverTimeout);
+    }, function() {
+        hoverTimeout = setTimeout(function() {
+            $img.attr('src', dsrc);
+        }, 3000);
+        
+    });
+    
+    
 }(document, window, jQuery));
 
 (function (document, window, $) {
@@ -7181,7 +7196,7 @@ return Outlayer;
 	'use strict';
 
 	$('.section-testimonials .slick').slick({
-      dots: false,
+      dots: true,
       arrows: true,
       infinite: true,
       speed: 300,
@@ -7190,7 +7205,7 @@ return Outlayer;
     });
     
     
-    $('.section-home-news .slick').slick({
+   /* $('.section-home-news .slick').slick({
       dots: true,
       arrows: false,
       infinite: true,
@@ -7236,7 +7251,7 @@ return Outlayer;
     
     $('.slick-posts').on('beforeChange', function(event, slick, currentSlide, nextSlide){
         new Foundation.Equalizer($('#slick-posts'));
-    });
+    });*/
    
     
 }(document, window, jQuery));
@@ -7296,51 +7311,3 @@ return Outlayer;
 
 }(document, window, jQuery));
 
-
-(function (document, window, $) {
-
-	'use strict';
-    
-    $(document).on('facetwp-loaded', function() {
-        var $grid = $( '.masonry-grid' ).imagesLoaded( function() {
-            $grid.masonry("reloadItems");
-            $grid.masonry( {
-                itemSelector: '.grid-item',
-              columnWidth: '.grid-sizer',
-              gutter: '.gutter-sizer',
-              percentPosition: true
-            });
-        });
-    });
-    
-    // Change target for blog and stories
-    var target = $('.facetwp-template');
-    if($('body').hasClass('blog')) {
-        target = $('.facetwp-filters');
-    }
-    
-    // add .is-paging ot trigger no fixed header on facet paging
-        
-    $(document).on('facetwp-loaded', function() {
-        if (FWP.loaded) {
-            $('.facetwp-template').addClass('is-paging');
-            
-            $.smoothScroll({
-                scrollTarget: target,
-                beforeScroll: function() {
-                    
-                },
-                afterScroll: function() {
-                     
-                },
-                
-            });
-            
-            setTimeout(function() {
-               $('.facetwp-template').removeClass('is-paging');
-           }, 500);
-        }
-    });
-
-    
-}(document, window, jQuery));

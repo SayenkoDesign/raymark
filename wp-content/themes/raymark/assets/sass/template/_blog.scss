@@ -59,15 +59,25 @@
         }
     }
     
+    .large-12 article .row {
+        margin-left: 0;
+        margin-right: 0;  
+
+    }
+    
+    .large-12 article .row  .column:first-child {
+            padding: 0;   
+    }
+    
     article {
         
         background-color: #fff;
         
         box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
         height: 100%;
-        
+                
         header {
-            padding: 15px 20px;   
+            padding: 15px 20px 40px;   
         }
         
         header.large-6  {
@@ -123,8 +133,12 @@
     border-radius: 8px;
     box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
     margin: 0 0 $global-margin;
-    padding: $global-margin $global-margin 0;
+    padding: $global-margin $global-margin $global-margin*1.5;
     text-align: center;
+    
+    @include breakpoint(large) {
+        padding: $global-margin $global-margin 0;   
+    }
         
         
     > * {
@@ -147,8 +161,11 @@
         margin: 0 5px 0 0;
         line-height: rem-calc(40);
         position: relative;
-        text-align: right;
         min-width: inherit;
+        
+        @include breakpoint(large) {
+            text-align: right;   
+        }
     }
     
     .facetwp-facet,
@@ -180,6 +197,7 @@
 }
 
 
+/*
 @include breakpoint(medium down) {
     .facetwp-pager {
         
@@ -201,6 +219,7 @@
         }
         
         svg {
+                         
             width: 15.5px;
             height: 11px;   
             position: absolute;
@@ -208,10 +227,7 @@
             top: 50%;
             transform: translate(-50%,-50%);
             
-            @include breakpoint(large) {
-                width: 31px;
-                height: 22px;   
-            }
+            
         }
         
         .next {
@@ -220,108 +236,108 @@
         
     }
 }
+*/
 
-@include breakpoint(large) {
 
-    .facetwp-pager {
+.facetwp-pager {
+    
+    @include clearfix;
+    margin-bottom: 45px;
+    
+    ul {
+        @include list-reset;
+        text-align: center;
         
-        @include clearfix;
-        margin-bottom: 45px;
-        
-        ul {
-            @include list-reset;
-            text-align: center;
+        li {
+            display: inline-block;
             
-            li {
-                display: inline-block;
-                
-                &:first-child {
-                    float: left;   
-                }
-                
-                &:last-child {
-                    float: right;   
-                }
-                
-                &.number {
-                    padding: rem-calc(5);
-                    line-height: rem-calc( 65/2 );
-                    
-                    @include breakpoint(large) {
-                        line-height: rem-calc( 65 ); 
-                    }
-                }
-                
-                &.active a {
-                    color: $blue;
-                }
-                
-                &:not(.active) a:hover {
-                    color: $sky-blue;
-                }
-                
-                &.disable span {
-                    border-color: $gray;
-                    svg path {
-                        &.line {
-                            stroke: $gray;
-                        }
-                        &.arrow {
-                            fill: $gray;   
-                        }
-                    }
-                }
-            }
-        }
-        
-        a {
-            padding: 4px;   
-            font-family: $cubano;
-            font-size: rem-calc(18);
-            color: $gray;
-        }
-        
-        span {
-            display: block;
-            position: relative;
-            width: rem-calc( 65/2 );
-            height: rem-calc( 65/2 ); 
-            border: 3px solid $blue;
-            border-radius: 100%;
-            curser: pointer;
-            
-            @include breakpoint(large) {
-                width: rem-calc( 65 );
-                height: rem-calc( 65 );  
+            &:first-child {
+                float: left;   
             }
             
-            &:hover {
-                border-color: $sky-blue;
+            &:last-child {
+                float: right;   
+            }
+            
+            &.number {
+                padding: rem-calc(5);
+                line-height: rem-calc( 20 );
+                
+                @include breakpoint(large) {
+                    line-height: rem-calc( 50 ); 
+                }
+            }
+            
+            &.active a {
+                color: $blue;
+            }
+            
+            &:not(.active) a:hover {
+                color: $sky-blue;
+            }
+            
+            &.disable span {
+                border-color: $gray;
                 svg path {
                     &.line {
-                        stroke: $sky-blue;
+                        stroke: $gray;
                     }
                     &.arrow {
-                        fill: $sky-blue;   
+                        fill: $gray;   
                     }
                 }
-            }            
-        }
-        
-        svg {
-            width: rem-calc(31/2);
-            height: rem-calc(22/2);  
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-            
-            @include breakpoint(large) {
-                width: rem-calc(31);
-                height: rem-calc(22);   
             }
         }
+    }
+    
+    a {
+        padding: 4px;   
+        font-family: $cubano;
+        font-size: rem-calc(18);
+        color: $gray;
+    }
+    
+    span {
+        display: block;
+        position: relative;
+        width: rem-calc( 65/2 );
+        height: rem-calc( 65/2 );  
+        border: 3px solid $blue;
+        border-radius: 100%;
+        cursor: pointer;
         
+        @include breakpoint(large) {
+            width: rem-calc( 65px );
+            height: rem-calc( 65px ); 
+        }
+
+        
+        &:hover {
+            border-color: $sky-blue;
+            svg path {
+                &.line {
+                    stroke: $sky-blue;
+                }
+                &.arrow {
+                    fill: $sky-blue;   
+                }
+            }
+        }            
+    }
+    
+    svg {
+        width: rem-calc(31/2);
+        height: rem-calc(22/2); 
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        
+        @include breakpoint(large) {
+            width: rem-calc( 31 );
+            height: rem-calc( 32 ); 
+        }
     }
     
 }
+    
