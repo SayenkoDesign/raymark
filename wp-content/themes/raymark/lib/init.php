@@ -24,6 +24,7 @@
 
     include_once( 'includes/theme-functions/shortcodes.php' );
     include_once( 'includes/theme-functions/array.php' );
+    include_once( 'includes/theme-functions/string.php' );
 
 /****************************************
 	Functions

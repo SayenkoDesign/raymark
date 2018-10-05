@@ -31,7 +31,7 @@ _s_get_template_part( 'template-parts/home', 'hero-video' );
      
      _s_get_template_part( 'template-parts/home', 'discount' );
      
-     //_s_get_template_part( 'template-parts/home', 'areas-contact' );
+     _s_get_template_part( 'template-parts/home', 'areas-we-serve' );
 
    	?>
         

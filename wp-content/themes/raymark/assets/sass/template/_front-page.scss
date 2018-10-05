@@ -322,3 +322,128 @@ section.section-discount {
         
     }
 }
+
+
+.section-areas-we-serve {
+    
+    .wrap {
+        padding-top: 0!important;  
+        background: $sky-blue; 
+    }
+    
+    .wrap > .row {
+        .column:first-child {
+            background: $blue; 
+            position: relative;  
+            
+            header {
+                padding: rem-calc(20 15);
+                text-align: center;
+                h2 {
+                    color: #fff;  
+                    margin: 0;
+                }
+            }
+        }
+    }
+    
+    .container {
+        padding: rem-calc(map-get($grid-column-gutter, small)); 
+        
+        @include breakpoint(large) {
+            padding: rem-calc(map-get($grid-column-gutter, large)); 
+        }
+        
+        @include breakpoint(medium) {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        
+        header {
+            text-align: center; 
+            margin-bottom: rem-calc(40);  
+            
+            .yellow {
+                color: $yellow;  
+                margin: 0 auto; 
+            }
+            
+            p {
+                font-size: rem-calc(36);  
+                margin: 0 auto; 
+                font-family: $cubano;
+                
+                a {
+                    color: #fff;   
+                }
+            }
+            
+            .lines {
+                color: #fff;
+                @include heading-lines(white);
+                margin: 0 auto;
+            }
+        }
+        
+        .scroll-container {
+            
+            margin-left: rem-calc(-30);
+            
+            .scroll {
+                
+                li {
+                    color: #FFFFFF;
+                    font-family: $cubano;
+                    font-size: 18px;
+                    line-height: 2.444444444;
+                }
+            }
+            @include breakpoint(medium) {
+                display: flex;
+            }
+        }
+    }
+    
+    .map-container {
+        height: 500px;
+        position: relative;
+        
+        .wpgmza_map {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%!important;   
+        }
+
+    }
+  
+    .scroll-container .scroll {
+        width: auto;
+        padding: rem-calc(0 30 0 30);
+        height: 275px;
+        overflow-y: scroll;
+        
+        &.scroll-left {
+           padding: rem-calc(0 30 0 0);    
+        }
+        
+        
+        ul {
+            padding: rem-calc(0 15 0 45);   
+        }
+    }
+    
+    .scroll::-webkit-scrollbar {
+        width: rem-calc(15);
+        background-color: #1c78bb;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+     
+    .scroll::-webkit-scrollbar-thumb {
+      background-color: #1c2039;
+    }
+    
+}
