@@ -9,6 +9,11 @@ if( ! class_exists( 'Home_About_Section' ) ) {
             parent::__construct();
                         
             $fields = get_field( 'about' );
+            
+            if( empty( array_filter( $fields ) ) ) {
+                return false;
+            }
+            
             $this->set_fields( $fields );
                         
             // Render the section

@@ -10,6 +10,10 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
                         
             $fields = get_field( 'faq' );
             
+            if( empty( array_filter( $fields ) ) ) {
+                return false;
+            }
+            
             $this->set_fields( $fields );
             
             // Render the section
@@ -70,7 +74,7 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
             $row = new Element_Row(); 
             $row->add_render_attribute( 'wrapper', 'class', 'large-unstack' );
             
-            $column = new Element_Column(); 
+            
         
             $faq_field = $this->get_fields( 'faq' );
                 
@@ -81,9 +85,12 @@ if( ! class_exists( 'Home_Discount_Section' ) ) {
             foreach( $faq_list_partitions as $fp ) {
                 // faq
                 $faq = new Element_FAQ( [ 'fields' => [ 'faq' => $fp ] ]  ); // set fields from Constructor
+                $column = new Element_Column(); 
                 $column->add_child( $faq );
                 $row->add_child( $column );
             }
+            
+            
                                                 
             $this->add_child( $row );                        
             

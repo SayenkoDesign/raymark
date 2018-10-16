@@ -64,8 +64,8 @@
                     <?php
                     $tagline = '<span>24/7 Emergency Service</span>';
                     
-                    $phone = sprintf( '<a href="%s">%s</a>', _s_format_telephone_url( $phone ), $phone );
-                    $service_area = sprintf( '<span>%s 24/7 Service Area</span>', get_svg( 'service-icon' ) );
+                    $phone = sprintf( '<a href="%s" class="phone-number">%s</a>', _s_format_telephone_url( $phone ), $phone );
+                    $service_area = sprintf( '<a href="/#section-areas-we-serve" class="serve">%s 24/7 Service Area</a>', get_svg( 'service-icon' ) );
                     printf( '<div class="widget column widget-text">%s%s%s</div>', $tagline, $phone, $service_area );
                     
                     $schedule_appointment = sprintf( '<button class="button blue" data-open="schedule-appointment"><span>%s</span></a>', 

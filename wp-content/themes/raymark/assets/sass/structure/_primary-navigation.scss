@@ -247,8 +247,26 @@
 	}
 }
 
-.menu .mobile-link-cta {
-    background-color: $blue;
+.menu .mobile-link-cta {    
+    a {
+        display: block; 
+        padding-left: 45px!important; 
+        position: relative;
+        background-color: $yellow!important;
+        color: $blue!important;
+        
+        &:before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 23px;
+            background-image: url("data:image/svg+xml,%3Csvg height='23' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.622 5.725c-.083-.307-.251-.634-.376-.92C13.761 1.267 10.514 0 7.892 0 4.382 0 .517 2.331 0 7.135v.98c0 .042.014.41.034.595.29 2.288 2.114 4.722 3.477 7.011C4.976 18.174 6.497 20.588 8.004 23c.93-1.575 1.856-3.17 2.763-4.703.248-.45.535-.898.783-1.328.164-.287.48-.573.624-.838C13.64 13.473 16 10.795 16 8.157V7.074c0-.286-.358-1.288-.378-1.349zM7.885 11c-1.065 0-2.23-.52-2.806-1.958C4.993 8.813 5 8.354 5 8.312v-.646C5 5.834 6.592 5 7.977 5 9.681 5 11 6.334 11 8c0 1.667-1.41 3-3.115 3z' fill='%23007abe' fill-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");  
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);  
+        }
+    }
 }
 
 

@@ -27,7 +27,10 @@ if( ! class_exists( 'Home_Areas_We_Serve_Section' ) ) {
                 'wrapper', 'class', [
                      $this->get_name() . '-areas-we-serve'
                 ]
-            );            
+            ); 
+            
+            $this->add_render_attribute(
+                'wrapper', 'id', $this->get_name() . '-areas-we-serve', true );            
             
         }  
        
