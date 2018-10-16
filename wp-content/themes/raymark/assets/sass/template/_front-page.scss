@@ -162,7 +162,7 @@ section.section-services {
                 border-top: 7px solid $yellow;
                 //border-top: 7px solid #d6d6d6;
                 border-radius: 0 0 8px 8px;
-                box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+                box-shadow: $box-shadow;
                 padding: 110px 30px 40px;
                 text-align: center;
                 min-height: 200px;
@@ -248,7 +248,7 @@ section.section-about {
                 background-color: #fff;
                 border-top: 7px solid #d6d6d6;
                 border-radius: 0 0 8px 8px;
-                box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+                box-shadow: $box-shadow;
                 padding: 110px 30px 40px;
                 text-align: center;
                 min-height: 200px;
