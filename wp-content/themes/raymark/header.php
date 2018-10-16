@@ -40,7 +40,7 @@
 			<div class="row align-middle">
                 
                     <?php
-                    $phone = '(206) 440-9077';
+                    $phone = '(206) 430-1954';
                              
                     if( !empty( $phone ) ) {
                         $number = _s_format_telephone_url( $phone );
