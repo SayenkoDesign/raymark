@@ -16,7 +16,7 @@ Header
 	@include breakpoint(large) {
                 
         &.fixed {
-            transition: transform .25s ease 0s;
+            transition: transform .2s ease 0s;
             position: fixed;
             top: 0;
             left: 0;

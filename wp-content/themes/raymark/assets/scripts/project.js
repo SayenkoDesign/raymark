@@ -7269,23 +7269,28 @@ return Outlayer;
         }
 
         // same page scroll
+        // Hide/show site-header for fixed header jumps
         $.smoothScroll({
             scrollTarget: target,
             beforeScroll: function() {
-                
+                $('.site-header').hide();
             },
             afterScroll: function() {
-                 
+                 $('.site-header').show();
             },
             
         });
     };
-
-    // if page has a #hash
+    
     if (location.hash) {
         $('html, body').scrollTop(0).show();
-        // smooth-scroll to hash
-        scrollnow();
+
+        $(window).load(function() {
+            // if page has a #hash
+            // smooth-scroll to hash
+            scrollnow();
+        });
+    
     }
 
     // for each <a>-element that contains a "/" and a "#"
