@@ -7,6 +7,23 @@
         
     $(".nav-primary").accessibleDropDownMenu();
     
+    $(window).on('load changed.zf.mediaquery', function(event, newSize, oldSize) {
+        
+        if( Foundation.MediaQuery.atLeast('large') ) {
+          $('.sticky-header').css( 'height', $('.site-header').height() );
+          $('.site-header').addClass('fixed');
+        }
+        else {
+            $('.sticky-header').css( 'height', '' );
+        }
+        
+        // need to reset sticky on resize. Otherwise it breaks
+        if( ! Foundation.MediaQuery.atLeast('large') ) {
+            $(document).foundation();
+        }
+                
+    });
+    
     
     // Toggle menu
     
