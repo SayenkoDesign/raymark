@@ -67,7 +67,7 @@ if( ! class_exists( 'Home_Services_Section' ) ) {
                 }
             }
             
-            $grid = sprintf( '<div class="grid" data-equalizer data-equalize-on="medium"><div class="row small-up-1 medium-up-2 xlarge-up-3 xxxlarge-up-4">%s</div></div>', $grid_items );
+            $grid = sprintf( '<div class="grid" data-equalizer data-equalize-on="medium"><div class="row small-up-1 medium-up-2 large-up-3 xxlarge-up-4">%s</div></div>', $grid_items );
             
             $html = new Element_Html( [ 'fields' => [ 'html' => $grid ] ] ); // set fields from Constructor
             $column->add_child( $html );

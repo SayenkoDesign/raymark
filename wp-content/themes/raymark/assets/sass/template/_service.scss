@@ -54,7 +54,7 @@
             padding: rem-calc(30 15 15 30);   
             border-radius: 8px;
             background-color: $yellow;
-            box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+            box-shadow: $box-shadow;
         }
         
         @include breakpoint(700) {
@@ -257,7 +257,7 @@
             .wrap {
                 border-radius: 8px;
                 background-color: $blue;
-                box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+                box-shadow: $box-shadow;
                 min-height: 340px;
                 padding: 60px 30px 30px 30px;   
                 

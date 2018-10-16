@@ -73,7 +73,7 @@
         
         background-color: #fff;
         
-        box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+        box-shadow: $box-shadow;
         height: 100%;
                 
         header {
@@ -131,7 +131,7 @@
     
     background-color: $sky-blue;
     border-radius: 8px;
-    box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+    box-shadow: $box-shadow;
     margin: 0 0 $global-margin;
     padding: $global-margin $global-margin $global-margin*1.5;
     text-align: center;
