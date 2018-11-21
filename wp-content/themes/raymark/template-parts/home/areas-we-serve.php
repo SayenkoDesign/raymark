@@ -56,8 +56,8 @@ if( ! class_exists( 'Home_Areas_We_Serve_Section' ) ) {
             
             $column = new Element_Column(); 
             
-            $contact = _s_format_string( 'Contact Us', 'h3', ['class' => 'yellow'] );
-            $phone = '(206) 440-9077';
+            $contact = _s_format_string( $this->get_fields( 'contact' ), 'h3', ['class' => 'yellow'] );
+            $phone = $this->get_fields( 'phone' );
             $number = _s_format_telephone_url( $phone );
             $phone = sprintf( '<p><a href="%s">%s</a></p>', $number, $phone );
             $areas_served = _s_format_string( '<span>Areas Served</span>', 'h3', ['class' => 'lines'] );
