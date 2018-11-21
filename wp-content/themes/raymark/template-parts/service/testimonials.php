@@ -10,6 +10,9 @@ if( ! class_exists( 'Service_Testimonials_Section' ) ) {
         
         public function __construct() {
             parent::__construct();
+            
+            $fields = get_field( 'service_testimonials', 'options' );            
+            $this->set_fields( $fields );
 
             // Render the section
             $this->render();
@@ -30,6 +33,24 @@ if( ! class_exists( 'Service_Testimonials_Section' ) ) {
                      $this->get_name() . '-testimonials' . '-' . $this->get_id(),
                 ]
             );
+            
+            $background_image       = $this->get_fields( 'background_image' );
+            $background_position_x  = strtolower( $this->get_fields( 'background_position_x' ) );
+            $background_position_y  = strtolower( $this->get_fields( 'background_position_y' ) );
+            $background_overlay     = $this->get_fields( 'background_overlay' );
+            
+            if( ! empty( $background_image ) ) {
+                $background_image = _s_get_acf_image( $background_image, 'hero', true );
+                                
+                $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-image: url(%s);', $background_image ) );
+                $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-position: %s %s;', 
+                                                                          $background_position_x, $background_position_y ) );
+                
+                if( true == $background_overlay ) {
+                     $this->add_render_attribute( 'wrapper', 'class', 'background-overlay' ); 
+                }
+                                                                          
+            }  
         }
         
         // Add content

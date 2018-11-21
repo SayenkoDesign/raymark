@@ -53,9 +53,9 @@ if( function_exists('acf_add_options_sub_page') ) {
     
     
     acf_add_options_sub_page(array(
-		'page_title' 	=> 'Locations Settings',
-		'menu_title' 	=> 'Locations Settings',
-		'parent'     => 'edit.php?post_type=location',
+		'page_title' 	=> 'Services Settings',
+		'menu_title' 	=> 'Services Settings',
+		'parent'     => 'edit.php?post_type=service',
 		'capability' => 'edit_posts'
 	));
 
