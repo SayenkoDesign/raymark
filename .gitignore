@@ -21,7 +21,8 @@ maps/
 todo.txt
 db.php
 
-# wordpress specific
+
+# wordpress specific, make sure we ingore everything
 wp-config.php
 wp-content/plugins/*
 wp-content/uploads/
