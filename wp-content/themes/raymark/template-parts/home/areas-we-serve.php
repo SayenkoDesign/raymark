@@ -46,7 +46,7 @@ if( ! class_exists( 'Home_Areas_We_Serve_Section' ) ) {
             
             $column = new Element_Column(); 
             
-            $header = '<header><h2><span style="text-decoration: underline;">Areas</span> We Service</h2></header>';
+            $header = '<header><h2><span style="text-decoration: underline;">Areas</span> We Serve</h2></header>';
             // Map
             $map_shortcode = sprintf( '<div class="map-container">%s</div>', do_shortcode( $this->get_fields( 'map_shortcode' ) ) );
             $map = new Element_Html( [ 'fields' => [ 'html' => $header . $map_shortcode ] ] ); // set fields from Constructor
