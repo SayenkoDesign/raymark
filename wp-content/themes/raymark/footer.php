@@ -28,10 +28,10 @@
         
         function footer_copyright() {
             
-            $copyright = sprintf( '<p>&copy; %s Raymark Plumbing & Sewer.</p>', 
+            $copyright = sprintf( '<p>&copy; %s Raymark Plumbing & Sewer</p>', 
                                       date( 'Y' ) );
                                       
-            $designer  = sprintf( '<p>All rights reserved. <a href="%1$s" target="_blank">Seattle Web Design</a> by <a href="%1$s" target="_blank">Sayenko design</a></p>', 'https://www.sayenkodesign.com/' );
+            $designer  = sprintf( '<p>All rights reserved. <a href="%1$s" target="_blank">Seattle Web Design</a> by <a href="%1$s" target="_blank">Sayenko Design</a></p>', 'https://www.sayenkodesign.com/' );
                                                         
             printf( '<div class="column row footer-copyright">%s%s</div>', $copyright, $designer );
         }
