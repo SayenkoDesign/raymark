@@ -138,7 +138,8 @@ section.section-services {
         }
         
         h2 {
-            @include heading-lines(white);   
+            color: $yellow;
+            @include heading-lines();   
         }
     }
     
