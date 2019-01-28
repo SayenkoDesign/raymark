@@ -7,7 +7,7 @@
                 background-image: url("data:image/svg+xml,%3Csvg height='826' width='1440' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0-38h1441v314S797.528 255.476 434.336 655.11C290.758 813.093 0 825.546 0 825.546z' fill='%23035481' fill-rule='evenodd'/%3E%3C/svg%3E");
                background-repeat: no-repeat;
                background-size: 100% auto;
-               background-position: left -5%;   
+               background-position: left -3%;   
            }
            
            @include breakpoint(xlarge) {
@@ -15,11 +15,11 @@
            }
            
            @include breakpoint(xxxlarge) {
-               background-position: left -10%;   
+               background-position: left -7%;   
            }
            
            @include breakpoint(1920) {
-               background-position: left -20%;   
+               background-position: left -10%;   
            }
            
            @include breakpoint(2500) {
