@@ -41,6 +41,7 @@ if( function_exists('acf_add_options_sub_page') ) {
         'autoload' => true,
 	));
     
+    /*
     acf_add_options_sub_page(array(
 		'page_title' 	=> 'Social Profiles',
 		'menu_title' 	=> 'Social Profiles',
@@ -50,6 +51,7 @@ if( function_exists('acf_add_options_sub_page') ) {
  		'redirect' 	=> false,
         'autoload' => true,
 	));
+    */
     
     
     acf_add_options_sub_page(array(
