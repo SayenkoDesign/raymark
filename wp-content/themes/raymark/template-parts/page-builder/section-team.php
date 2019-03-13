@@ -86,6 +86,7 @@ if( ! class_exists( 'Team_Section' ) ) {
     
                     $loop->the_post(); 
                     
+                    $postID = get_the_id();
                     
                     $out .= sprintf( '<article id="post-%s" class="%s">', get_the_ID(), join( ' ', get_post_class( 'column column-block' ) ) );
     
@@ -96,7 +97,7 @@ if( ! class_exists( 'Team_Section' ) ) {
                         $linkedin = sprintf( '<div class="social-icon">%s</div>', _s_format_string( get_svg( 'linkedin' ), 'a', [ 'href' => $linkedin ] ) );
                     }
                     
-                    $title  = sprintf( '<header>%s%s</header>', the_title( '<h3>', '</h3>', false ), $linkedin );
+                    $title  = sprintf( '<header>%s%s</header>', the_title( '<h3 ' . 'data-open="' . $postID . '">', '</h3>', false ), $linkedin );
                     
                     $position  = get_field( 'position' );
                     $position = _s_format_string( $position, 'p' );
@@ -113,7 +114,16 @@ if( ! class_exists( 'Team_Section' ) ) {
                           );
                     
                     $out .= '</article>';
-    
+                    
+                    if( get_field('bio_copy') ): ?>
+                    					
+					<div class="reveal" id="<?php echo $postID;?>" data-reveal>
+						<button class="close-button" data-close aria-label="Close modal" type="button">
+						<?php the_field('bio_copy');?>
+					</div>
+					
+                    <?php endif;  
+	                                      
                 endwhile;
                 
                 $out .= '</div>';
