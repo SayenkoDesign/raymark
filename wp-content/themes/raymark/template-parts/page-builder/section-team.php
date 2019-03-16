@@ -86,9 +86,36 @@ if( ! class_exists( 'Team_Section' ) ) {
     
                     $loop->the_post(); 
                     
-                    $postID = get_the_id();
+                    $reveal_id = get_the_id();
                     
-                    $out .= sprintf( '<article id="post-%s" class="%s">', get_the_ID(), join( ' ', get_post_class( 'column column-block' ) ) );
+                    $bio_copy = get_field('bio_copy');
+                    
+                    if( $bio_copy ): ?>
+					
+				    <div class="bio-reveal reveal" id="reveal-<?php echo $reveal_id;?>" data-reveal data-animation-in="hinge-in-from-middle-y fast" data-animation-out="hinge-out-from-middle-y fast">
+				 	<div class="wrap">
+						<button class="close-button" data-close aria-label="Close modal" type="button">
+						<span aria-hidden="true">&times;</span>
+					    </button>
+					    				      
+				        <div class="modal-body">
+					        <h3 class="bio-name"><?php echo the_title() ?></h3>
+							<div class="bio-copy-wrap"><?php echo $bio_copy?></div>
+				      	</div>
+				    </div>
+					</div>
+
+                    <?php endif;
+                    
+                    if($bio_copy) {
+                    
+                    $out .= sprintf( '<article id="post-%s" class="has-modal %s" ' . 'data-open="reveal-' . $reveal_id . '">', get_the_ID(), join( ' ', get_post_class( 'column column-block' ) ) );
+                    
+                    } else {
+	                    
+                    $out .= sprintf( '<article id="post-%s" class="%s" ' . 'data-open="reveal-' . $reveal_id . '">', get_the_ID(), join( ' ', get_post_class( 'column column-block' ) ) );	                    
+	                    
+                    }
     
                     $background = sprintf( ' style="background-image: url(%s)"', get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' ) );
                     
@@ -97,7 +124,7 @@ if( ! class_exists( 'Team_Section' ) ) {
                         $linkedin = sprintf( '<div class="social-icon">%s</div>', _s_format_string( get_svg( 'linkedin' ), 'a', [ 'href' => $linkedin ] ) );
                     }
                     
-                    $title  = sprintf( '<header>%s%s</header>', the_title( '<h3 ' . 'data-open="' . $postID . '">', '</h3>', false ), $linkedin );
+                    $title  = sprintf( '<header>%s%s</header>', the_title( '<h3>', '</h3>', false ), $linkedin );
                     
                     $position  = get_field( 'position' );
                     $position = _s_format_string( $position, 'p' );
@@ -114,16 +141,7 @@ if( ! class_exists( 'Team_Section' ) ) {
                           );
                     
                     $out .= '</article>';
-                    
-                    if( get_field('bio_copy') ): ?>
-                    					
-					<div class="reveal" id="<?php echo $postID;?>" data-reveal>
-						<button class="close-button" data-close aria-label="Close modal" type="button">
-						<?php the_field('bio_copy');?>
-					</div>
-					
-                    <?php endif;  
-	                                      
+                                          
                 endwhile;
                 
                 $out .= '</div>';

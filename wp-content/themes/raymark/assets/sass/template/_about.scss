@@ -148,6 +148,7 @@
                 position: absolute;
                 top: 0;
                 left: 50%;
+                transition: transform 0.2s ease;
                 transform: translateX(-50%);
             }
             
@@ -165,6 +166,9 @@
                                 
                 h3 {
                     line-height: 1.46;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: color 0.2s ease;
                 }
                 
                 .social-icon {
@@ -199,6 +203,19 @@
                 line-height: 25px;
             }
             
+        }
+        
+        article.has-modal {
+	        cursor: pointer;
+	        
+	        &:hover > .thumbnail {
+                transform: translateX(-50%) scale(1.05);
+            }
+             
+            &:hover h3 {
+	            color: #ffd302;
+            }
+	        
         }
     }
     
@@ -256,6 +273,29 @@
                 
             }
         }
+    }
+    
+    .reveal.bio-reveal {
+	    
+	    .wrap {
+		    .modal-body {
+		    position: relative;
+		    background-color: #007abe;
+			}
+			.bio-name {
+				background: #ffd302;
+				padding: 1.875rem 2.875rem;
+				color: #007abe;
+			}
+			.bio-copy-wrap {
+				padding: 1.875rem 2.875rem;
+			}
+	    }
+	   	    
+	    p {
+		    color: #fff;
+		    font-size: 1rem;
+	    }
     }
 
 }
